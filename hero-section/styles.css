@@ -188,6 +188,66 @@ html, body {
   background-color: #f9f9f9;
   padding: 80px 30px;
 }
+.job-item {
+  border-bottom: 1px solid #000;
+}
+
+.job-row {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 2fr 1.5fr 50px;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.job-date {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.job-company {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.job-title {
+  font-size: 16px;
+  color: #333;
+}
+
+.job-location {
+  font-size: 15px;
+  color: #666;
+}
+
+.job-toggle {
+  background: none;
+  border: none;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #000;
+  transition: transform 0.2s ease;
+}
+
+.job-toggle:hover {
+  transform: scale(1.2);
+}
+
+/* Collapsible content */
+.job-details {
+  padding: 0 10px 20px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  background-color: #f9f9f9;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #444;
+}
+
+.job-item.open .job-details {
+  max-height: 300px; /* Adjust as needed */
+}
 
 .resume-container {
   max-width: 1000px;
