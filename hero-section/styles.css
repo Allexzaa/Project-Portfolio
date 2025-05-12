@@ -1,34 +1,50 @@
-/* Page wrapper margin */
-body {
-  margin: 0px 10px 0px 10px;
-  padding: 0px 10px 0px 10px; /* Adds space on both left & right sides */
+/* Reset default spacing */
+body, html {
+  margin: 0;
+  padding: 0;
   font-family: 'Segoe UI', sans-serif;
-  background-color: #fff;
 }
 
-/* Keep the video edge-to-edge, ignore body padding */
+/* Hero section holds the video */
 .hero-section {
   position: relative;
-  width: 100vw;
-  margin-left: 10px;
-  margin-right: 10px;
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
 }
 
-/* Better nav bar contrast */
+/* Video wrapper: centers video with left/right margins */
+.video-wrapper {
+  width: calc(100vw - 60px); /* 30px on each side */
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Responsive, full-height video */
+.hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Overlayed top nav with better contrast */
 .top-navbar {
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
+  left: 30px;
+  right: 30px;
   padding: 20px 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px);
   z-index: 2;
-  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
-  backdrop-filter: blur(5px);     /* Optional blur for glass effect */
+  border-radius: 12px;
 }
 
-/* Keep nav content centered inside margins */
 .nav-container {
   display: flex;
   justify-content: space-between;
@@ -38,12 +54,10 @@ body {
   padding: 0 20px;
 }
 
-/* Logo size stays the same */
 .logo img {
   height: 26px;
 }
 
-/* Horizontal nav links */
 .nav-links {
   list-style: none;
   display: flex;
@@ -53,7 +67,7 @@ body {
 }
 
 .nav-links li a {
-  color: #ffffff;  /* white text */
+  color: #fff;
   text-decoration: none;
   font-weight: 500;
   font-size: 15px;
@@ -66,11 +80,4 @@ body {
 .nav-links li a:hover {
   background-color: rgba(0, 122, 255, 0.8);
   color: #fff;
-}
-
-/* Rest remains the same */
-.main-content {
-  padding-top: 140px;
-  max-width: 800px;
-  margin: auto;
 }
