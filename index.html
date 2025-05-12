@@ -4,15 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Project Showcase</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
-    <!-- Header -->
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="hero-content">
+            <h1>Your Name</h1>
+            <p class="tagline">Building the Future, One Project at a Time</p>
+            <a href="resume.pdf" class="cta-button" download>Download My Resume</a>
+        </div>
+    </section>
+
+    <!-- Navigation -->
     <header>
-        <h1>Your Name</h1>
         <nav>
             <ul>
-                <li><a href="#home">Home</a></li>
+                <li><a href="#hero">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#projects">Projects</a></li>
             </ul>
@@ -22,13 +32,32 @@
     <!-- Main Content -->
     <main>
         <!-- About Me Section -->
-        <section id="about">
+        <section id="about" class="fade-in">
             <h2>About Me</h2>
             <p>I’m a passionate coder who loves solving problems and building projects like my bike store site. I thrive in team settings, having collaborated on group projects, and I’m always eager to learn new tools to adapt to challenges.</p>
         </section>
 
+        <!-- Stats Section -->
+        <section id="stats" class="fade-in">
+            <h2>My Stats</h2>
+            <div class="stats-grid">
+                <div class="stat">
+                    <i class="fas fa-code"></i>
+                    <p>10+ Projects Completed</p>
+                </div>
+                <div class="stat">
+                    <i class="fab fa-github"></i>
+                    <p>500+ GitHub Commits</p>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-users"></i>
+                    <p>Worked in 5+ Team Projects</p>
+                </div>
+            </div>
+        </section>
+
         <!-- Projects Section -->
-        <section id="projects">
+        <section id="projects" class="fade-in">
             <h2>My Projects</h2>
             <div class="project-grid">
                 <!-- Project Card 1 -->
@@ -38,6 +67,11 @@
                     <p>I loved building this Django-based e-commerce site for bike enthusiasts—it was a fun challenge to make shopping for parts seamless!</p>
                     <p class="challenge"><strong>Challenge Solved:</strong> Optimized database queries to reduce load time by 15%.</p>
                     <p class="skills"><strong>Skills:</strong> Django, MySQL, Python – Built a site handling 100 users daily.</p>
+                    <div class="tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Django</span>
+                        <span class="tag">Web</span>
+                    </div>
                     <a href="projects/bike-store.html" class="learn-more">Learn More</a>
                 </div>
                 <!-- Project Card 2 -->
@@ -47,6 +81,11 @@
                     <p>I had a blast creating this app to track high scores—it’s perfect for gamers who want to compete with friends!</p>
                     <p class="challenge"><strong>Challenge Solved:</strong> Fixed a bug to ensure accurate score updates in real-time.</p>
                     <p class="skills"><strong>Skills:</strong> Python, Tkinter – Developed an app used by 50+ local gamers.</p>
+                    <div class="tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Tkinter</span>
+                        <span class="tag">App</span>
+                    </div>
                     <a href="projects/game-tracker.html" class="learn-more">Learn More</a>
                 </div>
                 <!-- Project Card 3 -->
@@ -56,6 +95,11 @@
                     <p>I enjoyed crafting this static blog to share my coding journey—it’s been a great way to connect with others!</p>
                     <p class="challenge"><strong>Challenge Solved:</strong> Improved mobile responsiveness for better user experience.</p>
                     <p class="skills"><strong>Skills:</strong> HTML, CSS – Designed a blog with 200+ monthly visitors.</p>
+                    <div class="tags">
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">Web</span>
+                    </div>
                     <a href="projects/blog.html" class="learn-more">Learn More</a>
                 </div>
             </div>
@@ -64,8 +108,27 @@
 
     <!-- Footer -->
     <footer>
-        <p>Contact me at: your.email@example.com | <a href="https://github.com/yourusername">GitHub</a></p>
+        <p>Contact me at: your.email@example.com | <a href="https://github.com/yourusername"><i class="fab fa-github"></i> GitHub</a></p>
         <p>I’m a team player who values collaboration and continuous learning—let’s build something great together!</p>
     </footer>
+
+    <!-- JavaScript for Fade-In Animation -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const fadeIns = document.querySelectorAll('.fade-in');
+            const options = {
+                threshold: 0.1
+            };
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, options);
+            fadeIns.forEach(section => observer.observe(section));
+        });
+    </script>
 </body>
 </html>
