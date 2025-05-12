@@ -4,16 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Project Showcase</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Chart.js for dashboard stats -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <!-- Hero Section -->
-    <section id="hero">
+    <!-- Hero Section (Theme-Based: Tech Explorer) -->
+    <section id="hero" class="theme-header">
         <div class="hero-content">
             <h1>Your Name</h1>
-            <p class="tagline">Building the Future, One Project at a Time</p>
+            <p class="tagline">Embarking on a Tech Exploration Journey</p>
             <a href="resume.pdf" class="cta-button" download>Download My Resume</a>
         </div>
     </section>
@@ -24,7 +26,10 @@
             <ul>
                 <li><a href="#hero">Home</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
+                <li><a href="#dashboard">Dashboard</a></li>
+                <li><a href="#timeline">Journey</a></li>
+                <li><a href="#projects">Gallery</a></li>
+                <li><a href="#game">Code Quest</a></li>
             </ul>
         </nav>
     </header>
@@ -37,71 +42,122 @@
             <p>I’m a passionate coder who loves solving problems and building projects like my bike store site. I thrive in team settings, having collaborated on group projects, and I’m always eager to learn new tools to adapt to challenges.</p>
         </section>
 
-        <!-- Stats Section -->
-        <section id="stats" class="fade-in">
-            <h2>My Stats</h2>
-            <div class="stats-grid">
-                <div class="stat">
-                    <i class="fas fa-code"></i>
-                    <p>10+ Projects Completed</p>
+        <!-- Stats Dashboard (Interactive Dashboard) -->
+        <section id="dashboard" class="fade-in">
+            <h2>Dashboard</h2>
+            <div class="dashboard-grid">
+                <div class="widget">
+                    <h3>Projects</h3>
+                    <canvas id="projectChart"></canvas>
+                    <p>10+ Completed</p>
                 </div>
-                <div class="stat">
-                    <i class="fab fa-github"></i>
-                    <p>500+ GitHub Commits</p>
+                <div class="widget">
+                    <h3>Commits</h3>
+                    <p>500+ on GitHub</p>
                 </div>
-                <div class="stat">
-                    <i class="fas fa-users"></i>
-                    <p>Worked in 5+ Team Projects</p>
+                <div class="widget">
+                    <h3>Teams</h3>
+                    <p>5+ Collaborations</p>
                 </div>
             </div>
         </section>
 
-        <!-- Projects Section -->
+        <!-- Timeline Journey -->
+        <section id="timeline" class="fade-in">
+            <h2>My Coding Journey</h2>
+            <div class="timeline">
+                <div class="timeline-node">
+                    <h3>May 2024: Bike Parts Store</h3>
+                    <p>Launched a Django e-commerce site.</p>
+                </div>
+                <div class="timeline-node">
+                    <h3>June 2024: Game Score Tracker</h3>
+                    <p>Built a Python app for gamers.</p>
+                </div>
+                <div class="timeline-node">
+                    <h3>July 2024: Personal Blog</h3>
+                    <p>Crafted a static blog with HTML/CSS.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Gallery (Minimalist with Theme Categories) -->
         <section id="projects" class="fade-in">
-            <h2>My Projects</h2>
+            <h2>Project Gallery</h2>
+            <div class="category-tabs">
+                <button class="tab active" data-category="all">All</button>
+                <button class="tab" data-category="web">Web</button>
+                <button class="tab" data-category="app">Apps</button>
+            </div>
             <div class="project-grid">
-                <!-- Project Card 1 -->
-                <div class="project-card">
+                <!-- Project Card 1 (Web) -->
+                <div class="project-card web">
                     <img src="images/project1.jpg" alt="Bike Parts Store">
-                    <h3>Bike Parts Store</h3>
-                    <p>I loved building this Django-based e-commerce site for bike enthusiasts—it was a fun challenge to make shopping for parts seamless!</p>
-                    <p class="challenge"><strong>Challenge Solved:</strong> Optimized database queries to reduce load time by 15%.</p>
-                    <p class="skills"><strong>Skills:</strong> Django, MySQL, Python – Built a site handling 100 users daily.</p>
-                    <div class="tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">Django</span>
-                        <span class="tag">Web</span>
+                    <div class="overlay">
+                        <h3>Bike Parts Store</h3>
+                        <p>I loved building this Django-based e-commerce site!</p>
+                        <p class="challenge"><strong>Challenge:</strong> Reduced load time by 15%.</p>
+                        <p class="skills"><strong>Skills:</strong> Django, MySQL, Python.</p>
+                        <div class="tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Django</span>
+                            <span class="tag">Web</span>
+                        </div>
                     </div>
                     <a href="projects/bike-store.html" class="learn-more">Learn More</a>
                 </div>
-                <!-- Project Card 2 -->
-                <div class="project-card">
+                <!-- Project Card 2 (App) -->
+                <div class="project-card app">
                     <img src="images/project2.jpg" alt="Game Score Tracker">
-                    <h3>Game Score Tracker</h3>
-                    <p>I had a blast creating this app to track high scores—it’s perfect for gamers who want to compete with friends!</p>
-                    <p class="challenge"><strong>Challenge Solved:</strong> Fixed a bug to ensure accurate score updates in real-time.</p>
-                    <p class="skills"><strong>Skills:</strong> Python, Tkinter – Developed an app used by 50+ local gamers.</p>
-                    <div class="tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">Tkinter</span>
-                        <span class="tag">App</span>
+                    <div class="overlay">
+                        <h3>Game Score Tracker</h3>
+                        <p>I had a blast creating this app for gamers!</p>
+                        <p class="challenge"><strong>Challenge:</strong> Fixed real-time updates.</p>
+                        <p class="skills"><strong>Skills:</strong> Python, Tkinter.</p>
+                        <div class="tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Tkinter</span>
+                            <span class="tag">App</span>
+                        </div>
                     </div>
                     <a href="projects/game-tracker.html" class="learn-more">Learn More</a>
                 </div>
-                <!-- Project Card 3 -->
-                <div class="project-card">
+                <!-- Project Card 3 (Web) -->
+                <div class="project-card web">
                     <img src="images/project3.jpg" alt="Personal Blog">
-                    <h3>Personal Blog</h3>
-                    <p>I enjoyed crafting this static blog to share my coding journey—it’s been a great way to connect with others!</p>
-                    <p class="challenge"><strong>Challenge Solved:</strong> Improved mobile responsiveness for better user experience.</p>
-                    <p class="skills"><strong>Skills:</strong> HTML, CSS – Designed a blog with 200+ monthly visitors.</p>
-                    <div class="tags">
-                        <span class="tag">HTML</span>
-                        <span class="tag">CSS</span>
-                        <span class="tag">Web</span>
+                    <div class="overlay">
+                        <h3>Personal Blog</h3>
+                        <p>I enjoyed crafting this static blog!</p>
+                        <p class="challenge"><strong>Challenge:</strong> Improved mobile responsiveness.</p>
+                        <p class="skills"><strong>Skills:</strong> HTML, CSS.</p>
+                        <div class="tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">Web</span>
+                        </div>
                     </div>
                     <a href="projects/blog.html" class="learn-more">Learn More</a>
                 </div>
+            </div>
+        </section>
+
+        <!-- Gamified Section -->
+        <section id="game" class="fade-in">
+            <h2>Code Quest</h2>
+            <div class="game-area">
+                <div class="level unlocked" data-level="1">
+                    <h3>Level 1: Bike Parts Store</h3>
+                    <p>Unlock: Click to Explore!</p>
+                </div>
+                <div class="level" data-level="2">
+                    <h3>Level 2: Game Score Tracker</h3>
+                    <p>Locked: Complete Level 1</p>
+                </div>
+                <div class="level" data-level="3">
+                    <h3>Level 3: Personal Blog</h3>
+                    <p>Locked: Complete Level 2</p>
+                </div>
+                <p class="progress">Progress: 1/3 Levels Unlocked</p>
             </div>
         </section>
     </main>
@@ -112,13 +168,12 @@
         <p>I’m a team player who values collaboration and continuous learning—let’s build something great together!</p>
     </footer>
 
-    <!-- JavaScript for Fade-In Animation -->
+    <!-- JavaScript for Interactivity -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Fade-In Animation
             const fadeIns = document.querySelectorAll('.fade-in');
-            const options = {
-                threshold: 0.1
-            };
+            const options = { threshold: 0.1 };
             const observer = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -128,6 +183,51 @@
                 });
             }, options);
             fadeIns.forEach(section => observer.observe(section));
+
+            // Dashboard Chart
+            const ctx = document.getElementById('projectChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Completed', 'In Progress'],
+                    datasets: [{
+                        data: [10, 2],
+                        backgroundColor: ['#3498db', '#e74c3c']
+                    }]
+                },
+                options: { responsive: true }
+            });
+
+            // Category Tabs
+            const tabs = document.querySelectorAll('.tab');
+            const cards = document.querySelectorAll('.project-card');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    const category = tab.dataset.category;
+                    cards.forEach(card => {
+                        card.style.display = category === 'all' || card.classList.contains(category) ? 'block' : 'none';
+                    });
+                });
+            });
+
+            // Gamified Levels
+            let unlockedLevel = 1;
+            const levels = document.querySelectorAll('.level');
+            levels.forEach(level => {
+                level.addEventListener('click', () => {
+                    const levelNum = parseInt(level.dataset.level);
+                    if (levelNum <= unlockedLevel) {
+                        level.classList.add('unlocked');
+                        if (levelNum === unlockedLevel) {
+                            unlockedLevel++;
+                            document.querySelector('.progress').textContent = `Progress: ${unlockedLevel}/3 Levels Unlocked`;
+                        }
+                    }
+                });
+            });
+            levels[0].classList.add('unlocked'); // Unlock Level 1 by default
         });
     </script>
 </body>
