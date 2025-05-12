@@ -139,13 +139,29 @@
 <script>
   document.querySelectorAll(".job-toggle").forEach(button => {
     button.addEventListener("click", function (e) {
-      e.stopPropagation(); // Prevent bubbling if needed
+      e.stopPropagation();
       const item = this.closest(".accordion-item");
-      item.classList.toggle("open");
-      this.textContent = item.classList.contains("open") ? "−" : "+";
+      const content = item.querySelector(".accordion-content");
+      const isOpen = item.classList.contains("open");
+
+      if (isOpen) {
+        // Close smoothly
+        content.style.maxHeight = content.scrollHeight + "px";
+        requestAnimationFrame(() => {
+          content.style.maxHeight = "0";
+        });
+        item.classList.remove("open");
+        this.textContent = "+";
+      } else {
+        // Open smoothly
+        content.style.maxHeight = content.scrollHeight + "px";
+        item.classList.add("open");
+        this.textContent = "−";
+      }
     });
   });
 </script>
+
 
 
 </body>
