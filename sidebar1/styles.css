@@ -1,131 +1,32 @@
-/* Reset and Base Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
-    font-family: 'Poppins', sans-serif;
-    background: #1a1a2e; /* Dark background for contrast */
-    color: #e0e0e0;
-    min-height: 100vh;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: #fff;
 }
 
-/* Glassmorphism Effect */
-.glass {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+.nav-bar {
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #ddd;
+  padding: 12px 0;
 }
 
-/* Navbar Styles */
-#navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 1rem 2rem;
-    z-index: 1000;
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
 }
 
-.navbar-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
+.nav-links li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
-.navbar-logo {
-    background: #252F3E; /* AWS Navy Blue box */
-    padding: 0.5rem;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.logo-image {
-    width: 40px;
-    height: 40px;
-    object-fit: contain;
-}
-
-.navbar-toggle {
-    display: none; /* Hidden by default */
-    background: #FF9900; /* AWS Orange */
-    border: none;
-    color: #252F3E; /* AWS Navy Blue */
-    padding: 0.5rem;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1.2rem;
-}
-
-.nav-menu {
-    list-style: none;
-    display: flex;
-    gap: 1.5rem;
-}
-
-.nav-button {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1rem;
-    background: transparent; /* Blends with navbar background */
-    color: #e0e0e0;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-}
-
-.nav-button i {
-    color: #FF9900; /* AWS Orange */
-}
-
-.nav-button:hover {
-    color: #FF9900;
-    transform: translateY(-2px);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .navbar-toggle {
-        display: block;
-    }
-
-    .nav-menu {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: rgba(37, 47, 62, 0.9); /* Semi-transparent navy */
-        padding: 1rem;
-        border-radius: 0 0 8px 8px;
-    }
-
-    .nav-menu.active {
-        display: flex;
-    }
-
-    .nav-button {
-        padding: 0.75rem 1rem;
-        width: 100%;
-        text-align: left;
-    }
-
-    .navbar-logo {
-        padding: 0.3rem;
-    }
-
-    .logo-image {
-        width: 30px;
-        height: 30px;
-    }
+.nav-links li a:hover {
+  color: #007aff;
 }
