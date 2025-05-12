@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>3D Box Button Flip</title>
+  <title>Slim 3D Flip Button</title>
   <style>
     body {
       background-color: #121212;
@@ -18,23 +18,23 @@
       perspective: 1000px;
     }
 
-    .button-box {
+    .flip-container {
       width: 160px;
-      height: 60px;
+      height: 50px;
       position: relative;
       transform-style: preserve-3d;
-      transition: transform 1.2s ease;
+      transition: transform 1s ease;
       cursor: pointer;
     }
 
-    .button-box:hover {
-      transform: rotateX(360deg);
+    .flip-container:hover {
+      transform: rotateX(180deg);
     }
 
     .face {
       position: absolute;
-      width: 160px;
-      height: 60px;
+      width: 100%;
+      height: 100%;
       background-color: #f7931e;
       color: white;
       font-size: 1rem;
@@ -42,36 +42,27 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      border-radius: 10px;
       border: 2px solid #d47900;
+      backface-visibility: hidden;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     }
 
-    .front  { transform: translateZ(30px); }
-    .back   { transform: rotateX(180deg) translateZ(30px); }
-    .top    { transform: rotateX(90deg) translateZ(30px); }
-    .bottom { transform: rotateX(-90deg) translateZ(30px); }
-
-    /* Optional: add left and right sides if you want full cube */
-    .left, .right {
-      width: 60px;
-      height: 60px;
-      top: 0;
+    .front {
+      transform: rotateX(0deg) translateZ(1px);
     }
 
-    .left  { transform: rotateY(-90deg) translateZ(80px); left: 0; }
-    .right { transform: rotateY(90deg) translateZ(80px); right: 0; }
+    .back {
+      transform: rotateX(180deg) translateZ(1px);
+    }
   </style>
 </head>
 <body>
 
   <div class="button-wrapper">
-    <div class="button-box">
+    <div class="flip-container">
       <div class="face front">Click Me</div>
-      <div class="face back">You're Back</div>
-      <div class="face top">Top Side</div>
-      <div class="face bottom">Bottom Side</div>
-      <!-- Optional: <div class="face left">L</div> -->
-      <!-- Optional: <div class="face right">R</div> -->
+      <div class="face back">Hello Again</div>
     </div>
   </div>
 
