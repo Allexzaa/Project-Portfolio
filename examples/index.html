@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3D Button Example</title>
+  <title>3D Button Hover Rotate</title>
   <style>
     body {
       background-color: #121212;
@@ -21,7 +21,6 @@
     }
 
     ._3d-button-wrapper {
-      position: relative;
       perspective: 1000px;
     }
 
@@ -35,9 +34,13 @@
       position: relative;
       width: 120px;
       height: 60px;
-      transform: rotateX(15deg) rotateY(15deg);
       transform-style: preserve-3d;
-      transition: transform 0.3s ease;
+      transform: rotateY(0deg);
+      transition: transform 1s ease;
+    }
+
+    ._3d-button:hover ._3d-button-container {
+      transform: rotateY(360deg);
     }
 
     ._3d-button-container div {
@@ -59,10 +62,6 @@
     .left-button { transform: rotateY(-90deg) translateZ(0); width: 60px; }
     .top-button { transform: rotateX(90deg) translateZ(60px); height: 60px; top: 0; }
     .bottom-button { transform: rotateX(-90deg) translateZ(0); height: 60px; }
-
-    ._3d-button-container:hover {
-      transform: rotateX(0deg) rotateY(0deg);
-    }
   </style>
 </head>
 <body>
