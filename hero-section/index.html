@@ -138,14 +138,15 @@
   <!-- JavaScript for collapsible resume items -->
 <script>
   document.querySelectorAll(".job-toggle").forEach(button => {
-    button.addEventListener("click", function (event) {
-      event.stopPropagation(); // Prevents bubbling up if needed
+    button.addEventListener("click", function (e) {
+      e.stopPropagation(); // Prevent bubbling if needed
       const item = this.closest(".accordion-item");
       item.classList.toggle("open");
       this.textContent = item.classList.contains("open") ? "−" : "+";
     });
   });
 </script>
+
 
 </body>
 </html>
