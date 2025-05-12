@@ -187,11 +187,12 @@ body {
     text-align: center;
     padding: 2rem;
     margin: 0 auto 3rem;
+    background: #252F3E; /* AWS Navy Blue */
 }
 
 #deluxe-cards-slider h2 {
     font-size: 2.5rem;
-    color: #00d2ff;
+    color: #FF9900; /* AWS Orange */
     margin-bottom: 2rem;
 }
 
@@ -209,53 +210,53 @@ body {
 
 .deluxe-card {
     flex: 0 0 300px;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
     padding: 2rem;
     margin: 0 20px;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    text-align: left;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .deluxe-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(0, 210, 255, 0.5);
+    transform: translateY(-5px);
+    box-shadow: 0 6px 18px rgba(255, 153, 0, 0.3); /* AWS Orange shadow */
 }
 
 .deluxe-card .card-icon {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     margin-bottom: 1rem;
 }
 
 .deluxe-card h3 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     color: #fff;
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
 }
 
 .deluxe-card p {
-    font-size: 1rem;
+    font-size: 0.95rem;
     color: #e0e0e0;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem;
+    line-height: 1.4;
 }
 
 .deluxe-card .card-cta {
     display: inline-block;
-    padding: 0.7rem 1.5rem;
-    background: #00d2ff;
-    color: #fff;
+    padding: 0.6rem 1.2rem;
+    background: #FF9900; /* AWS Orange */
+    color: #252F3E; /* AWS Navy Blue */
     text-decoration: none;
-    border-radius: 25px;
+    border-radius: 4px;
     font-weight: 600;
     transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .deluxe-card .card-cta:hover {
-    background: #3a7bd5;
+    background: #e68a00; /* Darker AWS Orange */
     transform: translateY(-2px);
 }
 
@@ -686,6 +687,19 @@ footer p:last-child {
 
     .deluxe-card {
         flex: 0 0 250px;
+    }
+
+    .deluxe-card .card-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .deluxe-card h3 {
+        font-size: 1.4rem;
+    }
+
+    .deluxe-card p {
+        font-size: 0.9rem;
     }
 
     .slider-nav {
