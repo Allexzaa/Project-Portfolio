@@ -1,7 +1,7 @@
 /* Page wrapper margin */
 body {
-  margin: 0;
-  padding: 0 40px; /* Adds space on both left & right sides */
+  margin: 0px 10px 0px 10px;
+  padding: 0px 10px 0px 10px; /* Adds space on both left & right sides */
   font-family: 'Segoe UI', sans-serif;
   background-color: #fff;
 }
@@ -10,8 +10,8 @@ body {
 .hero-section {
   position: relative;
   width: 100vw;
-  margin-left: -40px;
-  margin-right: -40px;
+  margin-left: 10px;
+  margin-right: 10px;
   height: 100vh;
   overflow: hidden;
 }
