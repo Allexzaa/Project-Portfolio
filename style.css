@@ -619,6 +619,73 @@ body {
     font-size: 1.1rem;
 }
 
+/* Item Expander Section */
+#expander-section {
+    margin: 0 auto 3rem;
+    padding: 0 1rem;
+}
+
+#expander-section h2 {
+    font-size: 2.5rem;
+    color: #FF9900; /* AWS Orange */
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.expander {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.expander-toggle {
+    width: 100%;
+    background: #252F3E; /* AWS Navy Blue */
+    color: #fff;
+    border: none;
+    padding: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: left;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.expander-toggle:hover {
+    background: #2c3e50; /* Slightly lighter navy */
+}
+
+.expander-toggle.open {
+    background: #2c3e50;
+}
+
+.expander-toggle i {
+    transition: transform 0.3s ease;
+}
+
+.expander-toggle.open i {
+    transform: rotate(180deg);
+}
+
+.expander-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0 1rem;
+    border-radius: 0 0 8px 8px;
+}
+
+.expander-content p {
+    padding: 1rem 0;
+    font-size: 1rem;
+    color: #e0e0e0;
+    line-height: 1.6;
+}
+
 /* Footer */
 footer {
     max-width: 800px;
@@ -730,6 +797,15 @@ footer p:last-child {
 
     .game-area {
         padding: 1rem;
+    }
+
+    .expander-toggle {
+        font-size: 1rem;
+        padding: 0.8rem;
+    }
+
+    .expander-content p {
+        font-size: 0.9rem;
     }
 
     .slider img {
