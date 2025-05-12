@@ -1,1 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AWS Projects Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-900 font-sans">
+  <div class="flex min-h-screen">
+    <!-- Sidebar -->
+    <aside class="w-64 bg-blue-800 text-white p-6 space-y-4">
+      <h1 class="text-2xl font-bold mb-4">AWS Portfolio</h1>
+      <nav class="space-y-2">
+        <a href="#about" class="block hover:text-yellow-300 transition">About Me</a>
+        <a href="#timeline" class="block hover:text-yellow-300 transition">Timeline</a>
+        <a href="#skills" class="block hover:text-yellow-300 transition">Skills</a>
+        <a href="#labs" class="block hover:text-yellow-300 transition">Labs</a>
+        <a href="#projects" class="block hover:text-yellow-300 transition">Projects</a>
+        <a href="#contact" class="block hover:text-yellow-300 transition">Contact</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-10 space-y-16">
+      <!-- About Section -->
+      <section id="about" class="animate-fade-in-up">
+        <h2 class="text-3xl font-semibold mb-4">About Me</h2>
+        <p class="text-lg leading-relaxed">Cloud developer engineer with hands-on AWS experience building and deploying scalable applications.</p>
+      </section>
+
+      <!-- Timeline Section -->
+      <section id="timeline" class="animate-fade-in-up">
+        <h2 class="text-3xl font-semibold mb-4">Learning Timeline</h2>
+        <div class="border-l-4 border-blue-700 ml-2 pl-6">
+          <div class="mb-8">
+            <h3 class="font-bold">Q1: AWS Foundations</h3>
+            <p>EC2, S3, IAM basics</p>
+          </div>
+          <div class="mb-8">
+            <h3 class="font-bold">Q2: Infrastructure</h3>
+            <p>CloudFormation, VPC, Lambda</p>
+          </div>
+          <div class="mb-8">
+            <h3 class="font-bold">Q3: DevOps & Security</h3>
+            <p>CI/CD with CodePipeline, WAF, Shield</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills Dashboard -->
+      <section id="skills" class="animate-fade-in-up">
+        <h2 class="text-3xl font-semibold mb-6">Skills Dashboard</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <h3 class="font-bold mb-2">EC2</h3>
+            <div class="w-full bg-gray-300 rounded-full h-4">
+              <div class="bg-blue-600 h-4 rounded-full" style="width: 90%"></div>
+            </div>
+          </div>
+          <div>
+            <h3 class="font-bold mb-2">Lambda</h3>
+            <div class="w-full bg-gray-300 rounded-full h-4">
+              <div class="bg-green-600 h-4 rounded-full" style="width: 80%"></div>
+            </div>
+          </div>
+          <div>
+            <h3 class="font-bold mb-2">CloudFormation</h3>
+            <div class="w-full bg-gray-300 rounded-full h-4">
+              <div class="bg-purple-600 h-4 rounded-full" style="width: 75%"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Labs Gallery -->
+      <section id="labs" class="animate-fade-in-up">
+        <h2 class="text-3xl font-semibold mb-6">Lab Gallery</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="p-4 bg-white rounded shadow-md">
+            <h3 class="text-xl font-bold">VPC Setup Lab</h3>
+            <p class="text-gray-600">Designed isolated subnets, route tables, and NAT gateways.</p>
+          </div>
+          <div class="p-4 bg-white rounded shadow-md">
+            <h3 class="text-xl font-bold">IAM Roles Lab</h3>
+            <p class="text-gray-600">Created roles with custom policies and used them with EC2.</p>
+          </div>
+          <div class="p-4 bg-white rounded shadow-md">
+            <h3 class="text-xl font-bold">Lambda Trigger Lab</h3>
+            <p class="text-gray-600">Triggered Lambda via S3 upload events to process images.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="projects" class="animate-fade-in-up">
+        <h2 class="text-3xl font-semibold mb-6">Projects</h2>
+        <div class="flex space-x-4 mb-4">
+          <button class="tab active" onclick="showCategory('all')">All</button>
+          <button class="tab" onclick="showCategory('infra')">Infrastructure</button>
+          <button class="tab" onclick="showCategory('serverless')">Serverless</button>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="projectCards">
+          <div class="project-card" data-category="infra">
+            <h3 class="text-xl font-bold">VPC and Subnet Design</h3>
+            <p>Built custom VPCs with subnets, routing tables, and security groups.</p>
+          </div>
+          <div class="project-card" data-category="serverless">
+            <h3 class="text-xl font-bold">Serverless API with Lambda</h3>
+            <p>Deployed a RESTful API with Lambda, API Gateway, and DynamoDB.</p>
+          </div>
+          <div class="project-card" data-category="infra">
+            <h3 class="text-xl font-bold">CI/CD with CodePipeline</h3>
+            <p>Automated deployment with CodePipeline, CodeBuild, and S3 hosting.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="animate-fade-in-up">
+        <h2 class="text-3xl font-semibold mb-4">Contact</h2>
+        <p>Email: yourname@example.com</p>
+        <p>GitHub: github.com/yourprofile</p>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    function showCategory(category) {
+      const cards = document.querySelectorAll('.project-card');
+      document.querySelectorAll('.tab').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+      cards.forEach(card => {
+        card.style.display = (category === 'all' || card.dataset.category === category) ? 'block' : 'none';
+      });
+    }
+  </script>
+</body>
+</html>
 
