@@ -98,13 +98,13 @@ body {
 .slider-container {
     overflow: hidden;
     width: 100vw;
-    margin-left: -2rem; /* Offset margin to align with body */
-    padding: 0 2rem; /* Ensure padding matches body margins */
+    margin-left: -2rem;
+    padding: 0 2rem;
 }
 
 .slider {
     display: flex;
-    animation: slide 10s linear infinite;
+    animation: slide 20s linear infinite;
 }
 
 .slider img {
