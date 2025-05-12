@@ -191,6 +191,69 @@ html, body {
 .job-item {
   border-bottom: 1px solid #000;
 }
+.accordion-container {
+  max-width: 1000px;
+  margin: 60px auto;
+  border-top: 2px solid #000;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.accordion-item {
+  border-bottom: 1px solid #000;
+}
+
+.accordion-header {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 2fr 1.5fr 40px;
+  align-items: center;
+  padding: 20px 0;
+  cursor: pointer;
+}
+
+.accordion-date {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.accordion-company {
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.accordion-role {
+  font-size: 16px;
+  color: #333;
+}
+
+.accordion-location {
+  font-size: 14px;
+  color: #777;
+}
+
+.accordion-toggle {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+}
+
+.accordion-item.open .accordion-toggle {
+  transform: rotate(45deg); /* Turns + into × */
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  background: #f9f9f9;
+  transition: max-height 0.3s ease-out;
+  font-size: 15px;
+  color: #444;
+  padding: 0 10px;
+}
+
+.accordion-item.open .accordion-content {
+  padding: 15px 10px;
+  max-height: 300px; /* adjust based on content */
+}
 
 .job-row {
   display: grid;
