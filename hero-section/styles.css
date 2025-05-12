@@ -1,20 +1,22 @@
-/* Global Reset */
+/* ===================== */
+/*     GLOBAL RESET      */
+/* ===================== */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-body, html {
+html, body {
   font-family: 'Segoe UI', sans-serif;
   background-color: #ffffff;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 /* ===================== */
 /*        NAVBAR         */
 /* ===================== */
-
 .top-navbar {
   position: fixed;
   top: 0;
@@ -65,11 +67,10 @@ body, html {
 /* ===================== */
 /*      HERO SECTION     */
 /* ===================== */
-
 .hero-section {
   position: relative;
   height: 100vh;
-  padding-top: 90px; /* Prevent nav overlap */
+  padding-top: 90px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -94,7 +95,6 @@ body, html {
 /* ===================== */
 /*    HERO TEXT OVERLAY  */
 /* ===================== */
-
 .hero-text {
   position: absolute;
   z-index: 2;
@@ -107,18 +107,17 @@ body, html {
 }
 
 .hero-text h1 {
-  font-size: 48px;
+  font-size: clamp(28px, 5vw, 48px);
   margin-bottom: 10px;
 }
 
 .hero-text p {
-  font-size: 18px;
+  font-size: clamp(16px, 2.5vw, 18px);
 }
 
 /* ===================== */
 /*     ABOUT SECTION     */
 /* ===================== */
-
 .about-section {
   background-color: #ffffff;
   padding: 80px 30px;
@@ -185,42 +184,6 @@ body, html {
 /* ===================== */
 /*    RESUME SECTION     */
 /* ===================== */
-.resume-job {
-  margin-bottom: 20px;
-}
-
-.collapsible {
-  background-color: #007aff;
-  color: white;
-  cursor: pointer;
-  padding: 16px;
-  width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 16px;
-  border-radius: 8px;
-  transition: background-color 0.3s ease;
-}
-
-.collapsible:hover {
-  background-color: #005fcc;
-}
-
-.content {
-  padding: 0 18px;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease-out;
-  background-color: #f9f9f9;
-  border-radius: 0 0 8px 8px;
-  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
-}
-
-.content p {
-  margin: 12px 0;
-}
-
 .resume-section {
   background-color: #f9f9f9;
   padding: 80px 30px;
@@ -271,4 +234,47 @@ body, html {
 .feature-card ul {
   padding-left: 18px;
   color: #444;
+}
+
+/* ===================== */
+/*   RESUME COLLAPSIBLE  */
+/* ===================== */
+.resume-job {
+  margin-bottom: 20px;
+}
+
+.collapsible {
+  background-color: #007aff;
+  color: white;
+  cursor: pointer;
+  padding: 16px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 16px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.collapsible:hover {
+  background-color: #005fcc;
+}
+
+.collapsible:focus {
+  box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.5);
+}
+
+.content {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  background-color: #f9f9f9;
+  border-radius: 0 0 8px 8px;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.content p {
+  margin: 12px 0;
 }
