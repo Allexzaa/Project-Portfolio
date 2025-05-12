@@ -139,19 +139,13 @@
   </main>
 
   <!-- JavaScript for collapsible resume items -->
-  <script>
+<script>
   document.querySelectorAll(".job-toggle").forEach(button => {
-    button.addEventListener("click", function () {
-      const jobItem = this.closest(".job-item");
-      jobItem.classList.toggle("open");
-      this.textContent = jobItem.classList.contains("open") ? "−" : "+";
-    });
-  });
-    <script>
-  document.querySelectorAll('.accordion-header').forEach(header => {
-    header.addEventListener('click', () => {
-      const item = header.parentElement;
-      item.classList.toggle('open');
+    button.addEventListener("click", function (event) {
+      event.stopPropagation(); // Prevents bubbling up if needed
+      const item = this.closest(".accordion-item");
+      item.classList.toggle("open");
+      this.textContent = item.classList.contains("open") ? "−" : "+";
     });
   });
 </script>
