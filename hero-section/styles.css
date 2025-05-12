@@ -1,39 +1,34 @@
-* {
-  box-sizing: border-box;
-}
-
-body, html {
-  margin: 20px;
-  padding: 10px;
+/* Page wrapper margin */
+body {
+  margin: 0;
+  padding: 0 40px; /* Adds space on both left & right sides */
   font-family: 'Segoe UI', sans-serif;
+  background-color: #fff;
 }
 
+/* Keep the video edge-to-edge, ignore body padding */
 .hero-section {
   position: relative;
-  width: 100%;
+  width: 100vw;
+  margin-left: -40px;
+  margin-right: -40px;
   height: 100vh;
   overflow: hidden;
 }
 
-.hero-video {
+/* Better nav bar contrast */
+.top-navbar {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 1;
-}
-
-/* Nav Bar Overlaid */
-.top-navbar {
-  position: absolute;
-  top: 0;
-  width: 100%;
   padding: 20px 0;
   z-index: 2;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  backdrop-filter: blur(5px);     /* Optional blur for glass effect */
 }
 
+/* Keep nav content centered inside margins */
 .nav-container {
   display: flex;
   justify-content: space-between;
@@ -43,10 +38,12 @@ body, html {
   padding: 0 20px;
 }
 
+/* Logo size stays the same */
 .logo img {
-  height: 24px;
+  height: 26px;
 }
 
+/* Horizontal nav links */
 .nav-links {
   list-style: none;
   display: flex;
@@ -56,46 +53,24 @@ body, html {
 }
 
 .nav-links li a {
-  color: #fff;
+  color: #ffffff;  /* white text */
   text-decoration: none;
   font-weight: 500;
   font-size: 15px;
   padding: 10px 16px;
   border-radius: 8px;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(255, 255, 255, 0.1);
   transition: background-color 0.3s ease;
 }
 
 .nav-links li a:hover {
-  background-color: rgba(0, 122, 255, 0.7);
-}
-
-/* Hero Text Overlay */
-.hero-text {
-  position: absolute;
-  z-index: 2;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
+  background-color: rgba(0, 122, 255, 0.8);
   color: #fff;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
 
-.hero-text h1 {
-  font-size: 48px;
-  margin: 0 0 10px;
-}
-
-.hero-text p {
-  font-size: 18px;
-  margin: 0;
-}
-
-/* Main content after video */
+/* Rest remains the same */
 .main-content {
-  padding: 60px 20px;
+  padding-top: 140px;
   max-width: 800px;
   margin: auto;
 }
-
