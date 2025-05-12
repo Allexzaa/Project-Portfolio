@@ -242,6 +242,56 @@ html, body {
 .resume-job {
   margin-bottom: 20px;
 }
+/* Resume Timeline Section */
+.timeline-resume {
+  max-width: 1200px;
+  margin: 80px auto;
+  padding: 0 30px;
+  border-top: 2px solid #000;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.job-row {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 2fr 1.5fr 50px;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid #000;
+}
+
+.job-date {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.job-company {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.job-title {
+  font-size: 16px;
+  color: #333;
+}
+
+.job-location {
+  font-size: 15px;
+  color: #666;
+}
+
+.job-toggle {
+  background: none;
+  border: none;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #000;
+  transition: transform 0.2s ease;
+}
+
+.job-toggle:hover {
+  transform: scale(1.2);
+}
 
 .collapsible {
   background-color: #007aff;
