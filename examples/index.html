@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vertical 3D Flip Button</title>
+  <title>3D Box Button Flip</title>
   <style>
     body {
       background-color: #121212;
@@ -19,19 +18,23 @@
       perspective: 1000px;
     }
 
-    .button {
+    .button-box {
       width: 160px;
       height: 60px;
       position: relative;
       transform-style: preserve-3d;
-      transition: transform 1s ease;
+      transition: transform 1.2s ease;
       cursor: pointer;
     }
 
-    .button-face {
+    .button-box:hover {
+      transform: rotateX(360deg);
+    }
+
+    .face {
       position: absolute;
-      width: 100%;
-      height: 100%;
+      width: 160px;
+      height: 60px;
       background-color: #f7931e;
       color: white;
       font-size: 1rem;
@@ -39,30 +42,36 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      border-radius: 12px;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-      backface-visibility: hidden;
+      border: 2px solid #d47900;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     }
 
-    .front {
-      transform: rotateX(0deg) translateZ(30px);
+    .front  { transform: translateZ(30px); }
+    .back   { transform: rotateX(180deg) translateZ(30px); }
+    .top    { transform: rotateX(90deg) translateZ(30px); }
+    .bottom { transform: rotateX(-90deg) translateZ(30px); }
+
+    /* Optional: add left and right sides if you want full cube */
+    .left, .right {
+      width: 60px;
+      height: 60px;
+      top: 0;
     }
 
-    .top {
-      transform: rotateX(90deg) translateZ(30px);
-    }
-
-    .button:hover {
-      transform: rotateX(90deg);
-    }
+    .left  { transform: rotateY(-90deg) translateZ(80px); left: 0; }
+    .right { transform: rotateY(90deg) translateZ(80px); right: 0; }
   </style>
 </head>
 <body>
 
   <div class="button-wrapper">
-    <div class="button">
-      <div class="button-face front">Click Me</div>
-      <div class="button-face top">Go!</div>
+    <div class="button-box">
+      <div class="face front">Click Me</div>
+      <div class="face back">You're Back</div>
+      <div class="face top">Top Side</div>
+      <div class="face bottom">Bottom Side</div>
+      <!-- Optional: <div class="face left">L</div> -->
+      <!-- Optional: <div class="face right">R</div> -->
     </div>
   </div>
 
