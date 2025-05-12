@@ -1,11 +1,16 @@
-/* Reset default spacing */
-body, html {
+/* Global Reset */
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Segoe UI', sans-serif;
 }
 
-/* Hero section holds the video */
+body, html {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #ffffff;
+}
+
+/* HERO SECTION WITH VIDEO */
 .hero-section {
   position: relative;
   height: 100vh;
@@ -15,16 +20,16 @@ body, html {
   overflow: hidden;
 }
 
-/* Video wrapper: centers video with left/right margins */
+/* Wrapper to limit video width and center it with 30px side margins */
 .video-wrapper {
-  width: calc(100vw - 60px); /* 30px on each side */
+  width: calc(100vw - 60px); /* 30px left + right */
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* Responsive, full-height video */
+/* Full height, responsive, cropped video */
 .hero-video {
   width: 100%;
   height: 100%;
@@ -32,17 +37,17 @@ body, html {
   border-radius: 12px;
 }
 
-/* Overlayed top nav with better contrast */
+/* NAVIGATION BAR OVER VIDEO */
 .top-navbar {
   position: absolute;
   top: 0;
   left: 30px;
   right: 30px;
   padding: 20px 0;
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(6px);
-  z-index: 2;
+  background: rgba(0, 0, 0, 0.5); /* Dark semi-transparent */
+  backdrop-filter: blur(6px);     /* Optional blur/glass effect */
   border-radius: 12px;
+  z-index: 2;
 }
 
 .nav-container {
@@ -62,8 +67,6 @@ body, html {
   list-style: none;
   display: flex;
   gap: 25px;
-  margin: 0;
-  padding: 0;
 }
 
 .nav-links li a {
@@ -80,4 +83,11 @@ body, html {
 .nav-links li a:hover {
   background-color: rgba(0, 122, 255, 0.8);
   color: #fff;
+}
+
+/* MAIN CONTENT BELOW VIDEO */
+.main-content {
+  padding: 60px 30px;
+  max-width: 1000px;
+  margin: auto;
 }
