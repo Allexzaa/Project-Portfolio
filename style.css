@@ -104,7 +104,7 @@ body {
 
 .slider {
     display: flex;
-    animation: slide 20s linear infinite;
+    animation: slide 10s linear infinite;
 }
 
 .slider img {
