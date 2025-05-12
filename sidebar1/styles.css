@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background-color: #ffffff;
+  background: #f0f8ff;
 }
 
 .cloud-navbar {
@@ -9,67 +9,88 @@ body {
   top: 0;
   left: 0;
   right: 0;
+  background: transparent;
   padding: 20px 0;
-  background-color: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(10px);
-  z-index: 1000;
   display: flex;
   justify-content: center;
+  z-index: 1000;
 }
 
 .cloud-nav {
   list-style: none;
   display: flex;
-  gap: 40px;
-  padding: 0;
+  gap: 30px;
   margin: 0;
-}
-
-.cloud-nav li {
-  position: relative;
+  padding: 0;
 }
 
 .cloud-nav li a {
-  position: relative;
-  display: inline-block;
-  padding: 20px 40px;
-  background-color: #4bb7f5;
-  color: #fff;
   text-decoration: none;
-  font-weight: bold;
-  font-size: 14px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-  transition: all 0.3s ease;
-  border-radius: 50px;
 }
 
-/* Create cloud puff shape using pseudo-elements */
-.cloud-nav li a::before,
-.cloud-nav li a::after {
+.cloud {
+  position: relative;
+  width: 120px;
+  height: 60px;
+  background: #4bb7f5;
+  border-radius: 50px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cloud span {
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  z-index: 2;
+  position: relative;
+}
+
+/* cloud puffs */
+.cloud::before,
+.cloud::after {
   content: '';
   position: absolute;
-  background-color: #4bb7f5;
-  z-index: -1;
+  background: #4bb7f5;
+  z-index: 1;
   border-radius: 50%;
 }
 
-.cloud-nav li a::before {
-  width: 30px;
-  height: 30px;
-  top: -15px;
-  left: 20%;
-}
-
-.cloud-nav li a::after {
+.cloud::before {
   width: 40px;
   height: 40px;
-  top: -20px;
-  right: 20%;
+  left: -20px;
+  top: -10px;
 }
 
-.cloud-nav li a:hover {
+.cloud::after {
+  width: 50px;
+  height: 50px;
+  right: -20px;
+  top: -15px;
+}
+
+/* middle puff */
+.cloud span::before {
+  content: '';
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #4bb7f5;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* Hover effect */
+.cloud:hover {
   transform: translateY(-6px);
-  background-color: #007aff;
+  background: #007aff;
   box-shadow: 0 14px 30px rgba(0, 122, 255, 0.4);
 }
 
