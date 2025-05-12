@@ -24,6 +24,21 @@
 
     <!-- Main Content -->
     <main>
+        <!-- Deluxe Card Section -->
+        <section id="deluxe-card" class="fade-in">
+            <div class="deluxe-card-content">
+                <h1 class="deluxe-title">Your Name</h1>
+                <p class="deluxe-subtitle">Full-Stack Developer & Cloud Enthusiast</p>
+                <p class="deluxe-description">Mastering cutting-edge technologies with a passion for innovation and excellence.</p>
+                <div class="deluxe-icons">
+                    <i class="fab fa-aws" title="AWS Certified"></i>
+                    <i class="fab fa-python" title="Python Expert"></i>
+                    <i class="fab fa-js" title="JavaScript Skilled"></i>
+                </div>
+                <a href="#projects" class="deluxe-cta">Explore My Work</a>
+            </div>
+        </section>
+
         <!-- About Me Section -->
         <section id="about" class="glass fade-in">
             <h2>About Me</h2>
@@ -32,36 +47,10 @@
 
         <!-- AWS Sliding Bar (Full Width) -->
         <section id="aws-skills" class="fade-in">
-           
+            <h2>AWS Skills</h2>
             <div class="slider-container">
-                <div class="slider">
-                    <!-- Color icons from Simple Icons -->
-                    <img src="https://simpleicons.org/icons/amazonaws.svg" alt="AWS" title="AWS">
-                    <img src="https://simpleicons.org/icons/amazons3.svg" alt="S3" title="Amazon S3">
-                    <img src="https://simpleicons.org/icons/amazonec2.svg" alt="EC2" title="Amazon EC2">
-                    <img src="https://simpleicons.org/icons/awslambda.svg" alt="Lambda" title="AWS Lambda">
-                    <img src="https://simpleicons.org/icons/amazonrds.svg" alt="RDS" title="Amazon RDS">
-                    <img src="https://simpleicons.org/icons/amazondynamodb.svg" alt="DynamoDB" title="Amazon DynamoDB">
-                    <img src="https://simpleicons.org/icons/amazoncloudwatch.svg" alt="CloudWatch" title="Amazon CloudWatch">
-                    <img src="https://simpleicons.org/icons/amazonecs.svg" alt="ECS" title="Amazon ECS">
-                    <!-- Duplicate for infinite scroll -->
-                    <img src="https://simpleicons.org/icons/amazonaws.svg" alt="AWS" title="AWS">
-                    <img src="https://simpleicons.org/icons/amazons3.svg" alt="S3" title="Amazon S3">
-                    <img src="https://simpleicons.org/icons/amazonec2.svg" alt="EC2" title="Amazon EC2">
-                    <img src="https://simpleicons.org/icons/awslambda.svg" alt="Lambda" title="AWS Lambda">
-                    <img src="https://simpleicons.org/icons/amazonrds.svg" alt="RDS" title="Amazon RDS">
-                    <img src="https://simpleicons.org/icons/amazondynamodb.svg" alt="DynamoDB" title="Amazon DynamoDB">
-                    <img src="https://simpleicons.org/icons/amazoncloudwatch.svg" alt="CloudWatch" title="Amazon CloudWatch">
-                    <img src="https://simpleicons.org/icons/amazonecs.svg" alt="ECS" title="Amazon ECS">
-
-                    <img src="https://simpleicons.org/icons/amazonaws.svg" alt="AWS" title="AWS">
-                    <img src="https://simpleicons.org/icons/amazons3.svg" alt="S3" title="Amazon S3">
-                    <img src="https://simpleicons.org/icons/amazonec2.svg" alt="EC2" title="Amazon EC2">
-                    <img src="https://simpleicons.org/icons/awslambda.svg" alt="Lambda" title="AWS Lambda">
-                    <img src="https://simpleicons.org/icons/amazonrds.svg" alt="RDS" title="Amazon RDS">
-                    <img src="https://simpleicons.org/icons/amazondynamodb.svg" alt="DynamoDB" title="Amazon DynamoDB">
-                    <img src="https://simpleicons.org/icons/amazoncloudwatch.svg" alt="CloudWatch" title="Amazon CloudWatch">
-                    <img src="https://simpleicons.org/icons/amazonecs.svg" alt="ECS" title="Amazon ECS">
+                <div class="slider" id="aws-slider">
+                    <!-- Images will be dynamically inserted here -->
                 </div>
             </div>
         </section>
@@ -203,6 +192,40 @@
                 });
             }, { threshold: 0.1 });
             fadeIns.forEach(section => observer.observe(section));
+
+            // AWS Slider Random Selection
+            const awsIcons = [
+                { url: 'https://simpleicons.org/icons/amazonaws.svg', alt: 'AWS', title: 'AWS' },
+                { url: 'https://simpleicons.org/icons/amazons3.svg', alt: 'S3', title: 'Amazon S3' },
+                { url: 'https://simpleicons.org/icons/amazonec2.svg', alt: 'EC2', title: 'Amazon EC2' },
+                { url: 'https://simpleicons.org/icons/awslambda.svg', alt: 'Lambda', title: 'AWS Lambda' },
+                { url: 'https://simpleicons.org/icons/amazonrds.svg', alt: 'RDS', title: 'Amazon RDS' },
+                { url: 'https://simpleicons.org/icons/amazondynamodb.svg', alt: 'DynamoDB', title: 'Amazon DynamoDB' },
+                { url: 'https://simpleicons.org/icons/amazoncloudwatch.svg', alt: 'CloudWatch', title: 'Amazon CloudWatch' },
+                { url: 'https://simpleicons.org/icons/amazonecs.svg', alt: 'ECS', title: 'Amazon ECS' }
+            ];
+
+            // Function to get a random subset of icons
+            function getRandomIcons(array, count) {
+                const shuffled = array.sort(() => 0.5 - Math.random());
+                return shuffled.slice(0, count);
+            }
+
+            // Select 8 icons randomly for the slider
+            const selectedIcons = getRandomIcons(awsIcons, 8);
+
+            // Duplicate for infinite scroll (16 total: 8 + 8)
+            const sliderIcons = [...selectedIcons, ...selectedIcons];
+            const slider = document.getElementById('aws-slider');
+
+            // Dynamically create img elements
+            sliderIcons.forEach(icon => {
+                const img = document.createElement('img');
+                img.src = icon.url;
+                img.alt = icon.alt;
+                img.title = icon.title;
+                slider.appendChild(img);
+            });
 
             // Dashboard Chart
             const ctx = document.getElementById('projectChart').getContext('2d');
