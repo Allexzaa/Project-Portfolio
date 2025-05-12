@@ -22,7 +22,6 @@ body, html {
 
 /* Wrapper to limit video width and center it with 30px side margins */
 .video-wrapper {
-  width: calc(100vw - 60px); /* 30px left + right */
   height: 100%;
   display: flex;
   justify-content: center;
