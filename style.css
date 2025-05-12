@@ -1,94 +1,179 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AWS Projects Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-100 text-gray-900 font-sans">
-  <div class="flex min-h-screen">
-    <!-- Sidebar -->
-    <aside class="w-64 bg-blue-800 text-white p-6 space-y-4">
-      <h1 class="text-2xl font-bold mb-4">AWS Portfolio</h1>
-      <nav class="space-y-2">
-        <a href="#about" class="block hover:text-yellow-300 transition">About Me</a>
-        <a href="#timeline" class="block hover:text-yellow-300 transition">Timeline</a>
-        <a href="#projects" class="block hover:text-yellow-300 transition">Projects</a>
-        <a href="#contact" class="block hover:text-yellow-300 transition">Contact</a>
-      </nav>
-    </aside>
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    <!-- Main Content -->
-    <main class="flex-1 p-10 space-y-16">
-      <!-- About Section -->
-      <section id="about" class="animate-fade-in-up">
-        <h2 class="text-3xl font-semibold mb-4">About Me</h2>
-        <p class="text-lg leading-relaxed">Cloud developer engineer with hands-on AWS experience building and deploying scalable applications.</p>
-      </section>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
 
-      <!-- Timeline Section -->
-      <section id="timeline" class="animate-fade-in-up">
-        <h2 class="text-3xl font-semibold mb-4">Learning Timeline</h2>
-        <div class="border-l-4 border-blue-700 ml-2 pl-6">
-          <div class="mb-8">
-            <h3 class="font-bold">Q1: AWS Foundations</h3>
-            <p>EC2, S3, IAM basics</p>
-          </div>
-          <div class="mb-8">
-            <h3 class="font-bold">Q2: Infrastructure</h3>
-            <p>CloudFormation, VPC, Lambda</p>
-          </div>
-          <div class="mb-8">
-            <h3 class="font-bold">Q3: DevOps & Security</h3>
-            <p>CI/CD with CodePipeline, WAF, Shield</p>
-          </div>
-        </div>
-      </section>
+/* Header */
+header {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
 
-      <!-- Projects Section -->
-      <section id="projects" class="animate-fade-in-up">
-        <h2 class="text-3xl font-semibold mb-6">Projects</h2>
-        <div class="flex space-x-4 mb-4">
-          <button class="tab active" onclick="showCategory('all')">All</button>
-          <button class="tab" onclick="showCategory('infra')">Infrastructure</button>
-          <button class="tab" onclick="showCategory('serverless')">Serverless</button>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="projectCards">
-          <div class="project-card" data-category="infra">
-            <h3 class="text-xl font-bold">VPC and Subnet Design</h3>
-            <p>Built custom VPCs with subnets, routing tables, and security groups.</p>
-          </div>
-          <div class="project-card" data-category="serverless">
-            <h3 class="text-xl font-bold">Serverless API with Lambda</h3>
-            <p>Deployed a RESTful API with Lambda, API Gateway, and DynamoDB.</p>
-          </div>
-          <div class="project-card" data-category="infra">
-            <h3 class="text-xl font-bold">CI/CD with CodePipeline</h3>
-            <p>Automated deployment with CodePipeline, CodeBuild, and S3 hosting.</p>
-          </div>
-        </div>
-      </section>
+header h1 {
+    margin-bottom: 0.5rem;
+}
 
-      <!-- Contact Section -->
-      <section id="contact" class="animate-fade-in-up">
-        <h2 class="text-3xl font-semibold mb-4">Contact</h2>
-        <p>Email: yourname@example.com</p>
-        <p>GitHub: github.com/yourprofile</p>
-      </section>
-    </main>
-  </div>
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
 
-  <script>
-    function showCategory(category) {
-      const cards = document.querySelectorAll('.project-card');
-      document.querySelectorAll('.tab').forEach(btn => btn.classList.remove('active'));
-      event.target.classList.add('active');
-      cards.forEach(card => {
-        card.style.display = (category === 'all' || card.dataset.category === category) ? 'block' : 'none';
-      });
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #3498db;
+}
+
+/* About Me Section */
+#about {
+    text-align: center;
+    padding: 2rem;
+    background-color: #ecf0f1;
+    border-radius: 8px;
+    margin: 2rem auto;
+    max-width: 800px;
+}
+
+#about h2 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+#about p {
+    color: #7f8c8d;
+    font-size: 1.1rem;
+}
+
+/* Main Content */
+#projects {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#projects h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #2c3e50;
+}
+
+/* Project Grid */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+}
+
+.project-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.project-card h3 {
+    padding: 1rem;
+    font-size: 1.5rem;
+    color: #2c3e50;
+}
+
+.project-card p {
+    padding: 0 1rem;
+    font-size: 1rem;
+    color: #7f8c8d;
+}
+
+.project-card p.challenge {
+    color: #e74c3c;
+    font-weight: bold;
+    margin-top: 0.5rem;
+}
+
+.project-card p.skills {
+    font-style: italic;
+    color: #2c3e50;
+    margin-top: 0.5rem;
+}
+
+.learn-more {
+    display: block;
+    text-align: center;
+    padding: 0.5rem 1rem;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    margin: 0 1rem 1rem;
+    border-radius: 4px;
+}
+
+.learn-more:hover {
+    background-color: #2980b9;
+}
+
+/* Footer */
+footer {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+
+footer a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: white;
+}
+
+footer p:last-child {
+    margin-top: 0.5rem;
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .project-grid {
+        grid-template-columns: 1fr;
     }
-  </script>
-</body>
-</html>
+
+    header nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    #about {
+        padding: 1rem;
+    }
+}
