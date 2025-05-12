@@ -83,11 +83,6 @@ body {
 }
 
 /* AWS Sliding Bar (Full Width) */
-#aws-skills {
-    text-align: center;
-    margin: 0 auto 3rem;
-    padding: 0;
-}
 
 #aws-skills h2 {
     font-size: 2.5rem;
@@ -108,14 +103,14 @@ body {
 }
 
 .slider img {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     margin: 0 1.5rem;
     transition: transform 0.3s ease;
 }
 
 .slider img:hover {
-    transform: scale(1.2);
+    transform: scale(1.0);
 }
 
 @keyframes slide {
