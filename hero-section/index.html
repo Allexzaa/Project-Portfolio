@@ -48,41 +48,44 @@
 
     <!-- About Section -->
     <section class="about-section">
-            <div class="about-container">
-              <div class="about-content">
-                <div class="about-image">
-                  <img src="https://via.placeholder.com/400x400" alt="Your Photo">
-                </div>
-                <div class="about-text">
-                  <h2>About Me</h2>
-                  <p>
-                    I'm a passionate Cloud Developer focused on building secure, scalable, and user-friendly applications.
-                    With a background in full-stack web development and cloud infrastructure, I love turning complex
-                    ideas into elegant digital solutions.
-                  </p>
-                  <ul class="about-features">
-                    <li>🚀 AWS Certified Cloud Practitioner</li>
-                    <li>💡 Strong focus on security and scalability</li>
-                    <li>🛠️ Experienced in Python, JavaScript, HTML/CSS</li>
-                    <li>🌐 Portfolio includes web apps, APIs, and infrastructure as code</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </section>
-      
-          <!-- Resume Section -->
-          <div class="resume-job">
-        <button class="collapsible">Cloud Developer – TechCorp (2023–Present)</button>
+      <div class="about-container">
+        <div class="about-content">
+          <div class="about-image">
+            <img src="https://via.placeholder.com/400x400" alt="Your Photo">
+          </div>
+          <div class="about-text">
+            <h2>About Me</h2>
+            <p>
+              I'm a passionate Cloud Developer focused on building secure, scalable, and user-friendly applications.
+              With a background in full-stack web development and cloud infrastructure, I love turning complex
+              ideas into elegant digital solutions.
+            </p>
+            <ul class="about-features">
+              <li>🚀 AWS Certified Cloud Practitioner</li>
+              <li>💡 Strong focus on security and scalability</li>
+              <li>🛠️ Experienced in Python, JavaScript, HTML/CSS</li>
+              <li>🌐 Portfolio includes web apps, APIs, and infrastructure as code</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section class="resume-section">
+      <h2>Resume Overview</h2>
+
+      <div class="resume-job">
+        <button class="collapsible" aria-expanded="false">Cloud Developer – TechCorp (2023–Present)</button>
         <div class="content">
           <p>Led the migration of legacy infrastructure to AWS using Terraform and CloudFormation.</p>
           <p>Implemented CI/CD pipelines with GitHub Actions and AWS CodePipeline.</p>
           <p>Collaborated with frontend and backend teams to deploy scalable web applications.</p>
         </div>
       </div>
-      
+
       <div class="resume-job">
-        <button class="collapsible">Web Developer – Freelance (2021–2023)</button>
+        <button class="collapsible" aria-expanded="false">Web Developer – Freelance (2021–2023)</button>
         <div class="content">
           <p>Developed and deployed custom websites and landing pages for small businesses.</p>
           <p>Specialized in responsive design using HTML, CSS, and JavaScript.</p>
@@ -92,20 +95,25 @@
     </section>
 
   </main>
-<script>
-  const collapsibles = document.querySelectorAll(".collapsible");
-  collapsibles.forEach(button => {
-    button.addEventListener("click", function () {
-      this.classList.toggle("active");
-      const content = this.nextElementSibling;
-      if (content.style.maxHeight) {
-        content.style.maxHeight = null;
-      } else {
-        content.style.maxHeight = content.scrollHeight + "px";
-      }
+
+  <!-- JavaScript for collapsible resume items -->
+  <script>
+    const collapsibles = document.querySelectorAll(".collapsible");
+    collapsibles.forEach(button => {
+      button.addEventListener("click", function () {
+        this.classList.toggle("active");
+        const content = this.nextElementSibling;
+        const isOpen = this.classList.contains("active");
+        this.setAttribute("aria-expanded", isOpen);
+        if (isOpen) {
+          content.style.maxHeight = content.scrollHeight + "px";
+        } else {
+          content.style.maxHeight = null;
+        }
+      });
     });
-  });
-</script>
+  </script>
 
 </body>
 </html>
+
