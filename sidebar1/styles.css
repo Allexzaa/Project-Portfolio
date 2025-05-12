@@ -32,10 +32,25 @@ body {
 
 .navbar-container {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
+}
+
+.navbar-logo {
+    background: #252F3E; /* AWS Navy Blue box */
+    padding: 0.5rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-image {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
 }
 
 .navbar-toggle {
@@ -47,7 +62,6 @@ body {
     border-radius: 5px;
     cursor: pointer;
     font-size: 1.2rem;
-    margin-right: 1rem;
 }
 
 .nav-menu {
@@ -104,5 +118,14 @@ body {
         padding: 0.75rem 1rem;
         width: 100%;
         text-align: left;
+    }
+
+    .navbar-logo {
+        padding: 0.3rem;
+    }
+
+    .logo-image {
+        width: 30px;
+        height: 30px;
     }
 }
