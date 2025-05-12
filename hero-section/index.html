@@ -72,37 +72,63 @@
     </section>
 
     <!-- Resume Section -->
-    <section class="timeline-resume">
-  <div class="job-row">
-    <div class="job-date">Current</div>
-    <div class="job-company">Synthesia</div>
-    <div class="job-title">Senior Product Designer</div>
-    <div class="job-location">Remote</div>
-    <button class="job-toggle">+</button>
+<section class="timeline-resume">
+
+  <div class="job-item">
+    <div class="job-row">
+      <div class="job-date">Current</div>
+      <div class="job-company">Synthesia</div>
+      <div class="job-title">Senior Product Designer</div>
+      <div class="job-location">Remote</div>
+      <button class="job-toggle">+</button>
+    </div>
+    <div class="job-details">
+      <p>
+        Leading design efforts on AI video creation tools. Collaborating cross-functionally with product managers, engineers, and researchers.
+      </p>
+      <p>
+        Spearheaded a major redesign that improved user onboarding by 30%.
+      </p>
+    </div>
   </div>
 
-  <div class="job-row">
-    <div class="job-date">2022–2023</div>
-    <div class="job-company">Metafy</div>
-    <div class="job-title">Design Lead</div>
-    <div class="job-location">Remote</div>
-    <button class="job-toggle">+</button>
+  <div class="job-item">
+    <div class="job-row">
+      <div class="job-date">2022–2023</div>
+      <div class="job-company">Metafy</div>
+      <div class="job-title">Design Lead</div>
+      <div class="job-location">Remote</div>
+      <button class="job-toggle">+</button>
+    </div>
+    <div class="job-details">
+      <p>Led a team of designers creating tools for streamers and creators. Defined design systems and user experience flows.</p>
+    </div>
   </div>
 
-  <div class="job-row">
-    <div class="job-date">2020–2022</div>
-    <div class="job-company">MetaLab</div>
-    <div class="job-title">Design Lead</div>
-    <div class="job-location">Remote</div>
-    <button class="job-toggle">+</button>
+  <div class="job-item">
+    <div class="job-row">
+      <div class="job-date">2020–2022</div>
+      <div class="job-company">MetaLab</div>
+      <div class="job-title">Design Lead</div>
+      <div class="job-location">Remote</div>
+      <button class="job-toggle">+</button>
+    </div>
+    <div class="job-details">
+      <p>Managed product design for SaaS clients. Delivered high-fidelity prototypes and collaborated with dev teams for implementation.</p>
+    </div>
   </div>
 
-  <div class="job-row">
-    <div class="job-date">2018–2020</div>
-    <div class="job-company">Huawei</div>
-    <div class="job-title">UX Design Manager</div>
-    <div class="job-location">Milan, Italy</div>
-    <button class="job-toggle">+</button>
+  <div class="job-item">
+    <div class="job-row">
+      <div class="job-date">2018–2020</div>
+      <div class="job-company">Huawei</div>
+      <div class="job-title">UX Design Manager</div>
+      <div class="job-location">Milan, Italy</div>
+      <button class="job-toggle">+</button>
+    </div>
+    <div class="job-details">
+      <p>Directed mobile UX efforts for EMUI. Worked with engineering to localize and adapt UX patterns for European markets.</p>
+    </div>
   </div>
 
   <!-- Add more rows as needed -->
@@ -112,21 +138,14 @@
 
   <!-- JavaScript for collapsible resume items -->
   <script>
-    const collapsibles = document.querySelectorAll(".collapsible");
-    collapsibles.forEach(button => {
-      button.addEventListener("click", function () {
-        this.classList.toggle("active");
-        const content = this.nextElementSibling;
-        const isOpen = this.classList.contains("active");
-        this.setAttribute("aria-expanded", isOpen);
-        if (isOpen) {
-          content.style.maxHeight = content.scrollHeight + "px";
-        } else {
-          content.style.maxHeight = null;
-        }
-      });
+  document.querySelectorAll(".job-toggle").forEach(button => {
+    button.addEventListener("click", function () {
+      const jobItem = this.closest(".job-item");
+      jobItem.classList.toggle("open");
+      this.textContent = jobItem.classList.contains("open") ? "−" : "+";
     });
-  </script>
+  });
+</script>
 
 </body>
 </html>
