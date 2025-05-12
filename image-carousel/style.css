@@ -1,0 +1,105 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #1a1a2e; /* Dark background for contrast */
+    color: #e0e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* Rotating Images Section */
+#rotating-images-section {
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.orbit-container {
+    position: relative;
+    width: 400px; /* Size of the orbit circle */
+    height: 400px;
+    margin: 0 auto;
+}
+
+.orbit-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.orbit-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #FF9900; /* AWS Orange for consistency with your theme */
+    text-transform: uppercase;
+}
+
+.orbit-item {
+    position: absolute;
+    width: 100px; /* Size of the orbiting images */
+    height: 100px;
+    top: 50%;
+    left: 50%;
+    transform-origin: center center;
+    animation: orbit 20s linear infinite; /* Rotate continuously */
+}
+
+.orbit-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%; /* Circular images */
+    border: 2px solid #FF9900; /* AWS Orange border */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Calculate the angle for each item based on its index */
+.orbit-item:nth-child(2) { animation-delay: -5s; }  /* Stagger the start */
+.orbit-item:nth-child(3) { animation-delay: -10s; }
+.orbit-item:nth-child(4) { animation-delay: -15s; }
+
+/* Orbit animation */
+@keyframes orbit {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg) translateX(150px) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg) translateX(150px) rotate(-360deg);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .orbit-container {
+        width: 300px;
+        height: 300px;
+    }
+
+    .orbit-item {
+        width: 80px;
+        height: 80px;
+    }
+
+    @keyframes orbit {
+        0% {
+            transform: translate(-50%, -50%) rotate(0deg) translateX(120px) rotate(0deg);
+        }
+        100% {
+            transform: translate(-50%, -50%) rotate(360deg) translateX(120px) rotate(-360deg);
+        }
+    }
+
+    .orbit-title {
+        font-size: 1.5rem;
+    }
+}
