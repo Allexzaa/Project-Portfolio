@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Fixed Sidebar Nav</title>
+  <title>Floating Sidebar Nav</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <!-- Sidebar -->
-  <nav class="sidebar">
+  <!-- Floating Sidebar -->
+  <nav id="floating-sidebar">
     <div class="logo">
       <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Logo"></a>
     </div>
@@ -25,12 +25,12 @@
   <!-- Main Content -->
   <div class="main-content">
     <section>
-      <h1>Welcome to My Portfolio</h1>
-      <p>Scroll down to see the sticky sidebar stay fixed.</p>
-      <p>Lorem ipsum dolor sit amet... (repeat to simulate scroll)</p>
+      <h1>Dynamic Sidebar Example</h1>
+      <p>Scroll down and watch the sidebar gently follow the page.</p>
+      <p style="margin-bottom: 2000px;">Lorem ipsum dolor sit amet... (more text to simulate scroll)</p>
     </section>
-    <section style="height: 2000px;"></section>
   </div>
 
+  <script src="script.js"></script>
 </body>
 </html>
