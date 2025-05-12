@@ -147,6 +147,15 @@
       this.textContent = jobItem.classList.contains("open") ? "−" : "+";
     });
   });
+    <script>
+  document.querySelectorAll('.accordion-header').forEach(header => {
+    header.addEventListener('click', () => {
+      const item = header.parentElement;
+      item.classList.toggle('open');
+    });
+  });
+</script>
+
 </script>
 
 </body>
