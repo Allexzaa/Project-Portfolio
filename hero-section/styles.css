@@ -232,22 +232,22 @@ html, body {
 .job-toggle {
   background: none;
   border: none;
-  font-size: 28px;
+  font-size: 23px;
   font-weight: bold;
   cursor: pointer;
   color: #000;
-  transition: transform 0.3s ease;
+  transition: transform 0.2s ease;
 }
 
 .accordion-item.open .job-toggle {
-  transform: rotate(45deg); /* Turns + into × */
+  transform: rotate(90deg); /* Turns + into × */
 }
 
 .accordion-content {
   max-height: 0;
   overflow: hidden;
   background: #f9f9f9;
-  transition: max-height 0.3s ease-out;
+  transition: max-height 0.2s ease-out;
   font-size: 15px;
   color: #444;
   padding: 0 10px;
