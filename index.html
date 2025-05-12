@@ -26,7 +26,7 @@
     <main>
         <!-- Deluxe Card Section -->
         <section id="deluxe-card" class="fade-in">
-            <div class="deluxe-card-content">
+            <div class="deluxe-card-content" style="background-image: url('https://dianastatic.com/digital20Marketing/House/Hero_background_m25-get-certifi c-odule_Challenge_ed062a803e5a8f4130e9190ce14e01a.png'); data-rn='8'">
                 <h1 class="deluxe-title">Your Name</h1>
                 <p class="deluxe-subtitle">Full-Stack Developer & Cloud Enthusiast</p>
                 <p class="deluxe-description">Mastering cutting-edge technologies with a passion for innovation and excellence.</p>
@@ -36,6 +36,47 @@
                     <i class="fab fa-js" title="JavaScript Skilled"></i>
                 </div>
                 <a href="#projects" class="deluxe-cta">Explore My Work</a>
+            </div>
+        </section>
+
+        <!-- Deluxe Cards Slider Section -->
+        <section id="deluxe-cards-slider" class="fade-in">
+            <h2>Explore AWS Services</h2>
+            <div class="cards-slider-container">
+                <button class="slider-nav prev" aria-label="Previous Card"><i class="fas fa-chevron-left"></i></button>
+                <div class="cards-slider">
+                    <div class="deluxe-card">
+                        <img src="https://simpleicons.org/icons/amazons3.svg" alt="Amazon S3" class="card-icon">
+                        <h3>Amazon S3</h3>
+                        <p>Scalable object storage for data backup, archiving, and analytics.</p>
+                        <a href="https://aws.amazon.com/s3/" target="_blank" class="card-cta">Learn More</a>
+                    </div>
+                    <div class="deluxe-card">
+                        <img src="https://simpleicons.org/icons/amazonec2.svg" alt="Amazon EC2" class="card-icon">
+                        <h3>Amazon EC2</h3>
+                        <p>Resizable compute capacity in the cloud for virtually any workload.</p>
+                        <a href="https://aws.amazon.com/ec2/" target="_blank" class="card-cta">Learn More</a>
+                    </div>
+                    <div class="deluxe-card">
+                        <img src="https://simpleicons.org/icons/awslambda.svg" alt="AWS Lambda" class="card-icon">
+                        <h3>AWS Lambda</h3>
+                        <p>Run code without provisioning or managing servers.</p>
+                        <a href="https://aws.amazon.com/lambda/" target="_blank" class="card-cta">Learn More</a>
+                    </div>
+                    <div class="deluxe-card">
+                        <img src="https://simpleicons.org/icons/amazonrds.svg" alt="Amazon RDS" class="card-icon">
+                        <h3>Amazon RDS</h3>
+                        <p>Managed relational database service for easy scaling.</p>
+                        <a href="https://aws.amazon.com/rds/" target="_blank" class="card-cta">Learn More</a>
+                    </div>
+                    <div class="deluxe-card">
+                        <img src="https://simpleicons.org/icons/amazondynamodb.svg" alt="Amazon DynamoDB" class="card-icon">
+                        <h3>Amazon DynamoDB</h3>
+                        <p>Fast, flexible NoSQL database for high-performance apps.</p>
+                        <a href="https://aws.amazon.com/dynamodb/" target="_blank" class="card-cta">Learn More</a>
+                    </div>
+                </div>
+                <button class="slider-nav next" aria-label="Next Card"><i class="fas fa-chevron-right"></i></button>
             </div>
         </section>
 
@@ -193,6 +234,43 @@
             }, { threshold: 0.1 });
             fadeIns.forEach(section => observer.observe(section));
 
+            // Deluxe Cards Slider
+            const slider = document.querySelector('.cards-slider');
+            const cards = document.querySelectorAll('.deluxe-card');
+            const prevBtn = document.querySelector('.slider-nav.prev');
+            const nextBtn = document.querySelector('.slider-nav.next');
+            let currentIndex = 0;
+            const cardWidth = cards[0].offsetWidth + 40; // Include margin
+
+            function updateSlider() {
+                slider.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+            }
+
+            nextBtn.addEventListener('click', () => {
+                if (currentIndex < cards.length - 1) {
+                    currentIndex++;
+                    updateSlider();
+                }
+            });
+
+            prevBtn.addEventListener('click', () => {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updateSlider();
+                }
+            });
+
+            // Keyboard Navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight' && currentIndex < cards.length - 1) {
+                    currentIndex++;
+                    updateSlider();
+                } else if (e.key === 'ArrowLeft' && currentIndex > 0) {
+                    currentIndex--;
+                    updateSlider();
+                }
+            });
+
             // AWS Slider Random Selection
             const awsIcons = [
                 { url: 'https://simpleicons.org/icons/amazonaws.svg', alt: 'AWS', title: 'AWS' },
@@ -205,26 +283,21 @@
                 { url: 'https://simpleicons.org/icons/amazonecs.svg', alt: 'ECS', title: 'Amazon ECS' }
             ];
 
-            // Function to get a random subset of icons
             function getRandomIcons(array, count) {
                 const shuffled = array.sort(() => 0.5 - Math.random());
                 return shuffled.slice(0, count);
             }
 
-            // Select 8 icons randomly for the slider
             const selectedIcons = getRandomIcons(awsIcons, 8);
-
-            // Duplicate for infinite scroll (16 total: 8 + 8)
             const sliderIcons = [...selectedIcons, ...selectedIcons];
-            const slider = document.getElementById('aws-slider');
+            const awsSlider = document.getElementById('aws-slider');
 
-            // Dynamically create img elements
             sliderIcons.forEach(icon => {
                 const img = document.createElement('img');
                 img.src = icon.url;
                 img.alt = icon.alt;
                 img.title = icon.title;
-                slider.appendChild(img);
+                awsSlider.appendChild(img);
             });
 
             // Dashboard Chart
@@ -247,13 +320,13 @@
 
             // Category Tabs
             const tabs = document.querySelectorAll('.tab');
-            const cards = document.querySelectorAll('.project-card');
+            const cardsProj = document.querySelectorAll('.project-card');
             tabs.forEach(tab => {
                 tab.addEventListener('click', () => {
                     tabs.forEach(t => t.classList.remove('active'));
                     tab.classList.add('active');
                     const category = tab.dataset.category;
-                    cards.forEach(card => {
+                    cardsProj.forEach(card => {
                         card.style.display = category === 'all' || card.classList.contains(category) ? 'block' : 'none';
                     });
                 });
