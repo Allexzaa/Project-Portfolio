@@ -10,10 +10,22 @@ body {
   padding: 12px 0;
 }
 
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo img {
+  height: 20px;
+}
+
 .nav-links {
   list-style: none;
   display: flex;
-  justify-content: center;
   gap: 30px;
   margin: 0;
   padding: 0;
