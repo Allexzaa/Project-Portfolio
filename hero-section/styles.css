@@ -246,15 +246,11 @@ html, body {
 .accordion-content {
   max-height: 0;
   overflow: hidden;
+  transition: max-height 0.4s ease;
   background: #f9f9f9;
-  transition: max-height 0.2s ease-out;
   font-size: 15px;
   color: #444;
   padding: 0 10px;
 }
 
-.accordion-item.open .accordion-content {
-  padding: 15px 10px;
-  max-height: 300px; /* adjust if needed */
-}
 
