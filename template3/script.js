@@ -1,4 +1,4 @@
-/* Reset and Base Styles */
+/* Reset and Base Styleds */
 * {
     margin: 0;
     padding: 0;
