@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const speedSlider = document.getElementById('speed');
     const speedValue = document.getElementById('speedValue');
     
-    // Set canvas size
+    // Set canvas sizes
     function resizeCanvas() {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
