@@ -278,10 +278,38 @@ html, body {
   width: 300px;
   text-align: left;
   color: #fff;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
   overflow: hidden;
+  z-index: 1;
   transition: transform 0.3s ease;
 }
+
+.process-card::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  z-index: -1;
+  background: linear-gradient(45deg, #00ffff, #ff00ff, #00ffff, #ff00ff);
+  background-size: 400% 400%;
+  border-radius: 18px;
+  animation: rotateBorder 6s linear infinite;
+  opacity: 0.3;
+}
+
+@keyframes rotateBorder {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 
 .process-card:hover {
   transform: translateY(-10px);
@@ -330,4 +358,32 @@ html, body {
   font-size: 72px;
   font-weight: bold;
   color: rgba(255, 255, 255, 0.05);
+}
+/* Toggle Button Arrow Rotation */
+.process-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  text-decoration: none;
+  color: #fff;
+  transition: background 0.3s ease, border 0.3s ease;
+  position: relative;
+}
+
+.arrow-icon {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.process-link:hover .arrow-icon {
+  transform: rotate(90deg);
+}
+
+.process-link:hover {
+  background-color: #007aff;
+  border-color: #007aff;
 }
