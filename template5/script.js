@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const dataPulses = [];
     const glowColor = '#00aaff'; // Neon blue for glowing wires
     const pulseColors = ['#ff9900', '#e0e0e0']; // Orange and white for data pulses
-    const awsIcons = ['001', '002', '003']; // Base names of icon files (e.g., ec2.png)
+    const awsIcons = ['001', '002', '003']; // Base names of icon files (e.g., 001.png)
 
     // Preload AWS icons from images folder
     const iconImages = {};
@@ -26,15 +26,13 @@ document.addEventListener('DOMContentLoaded', () => {
         iconImages[iconName] = new Image();
         iconImages[iconName].onload = () => {
             iconsLoaded++;
+            console.log(`Loaded icon: ${iconName}`); // Debug log to confirm loading
             if (iconsLoaded === totalIcons) callback();
         };
         iconImages[iconName].onerror = () => console.error(`Failed to load image: images/${iconName}.png`);
-        // Add the path to your images folder here
-        iconImages[iconName].src = `images/001.png`; // <- This is where you set the path
-        iconImages[iconName].src = `images/002.png`;
-        iconImages[iconName].src = `images/003.png`;
+        // Dynamically set the path using the iconName
+        iconImages[iconName].src = `images/${iconName}.png`; // Correct path for each icon
     }
-    
 
     // Load all icons and start animation when ready
     awsIcons.forEach(iconName => loadIcon(iconName, startAnimation));
@@ -179,4 +177,18 @@ document.addEventListener('DOMContentLoaded', () => {
         // Handle window resize
         window.addEventListener('resize', () => {
             canvas.width = window.innerWidth;
-            canvas.height = window.inner
+            canvas.height = window.innerHeight;
+
+            // Recalculate wire and node positions
+            const newWireSpacing = canvas.width / (wireCount + 1);
+            const newNodeSpacing = canvas.height / (nodesPerWire + 1);
+            wires.forEach((wire, index) => {
+                wire.x = (index + 1) * newWireSpacing;
+                wire.nodes.forEach((node, nodeIndex) => {
+                    node.x = wire.x;
+                    node.y = (nodeIndex + 1) * newNodeSpacing;
+                });
+            });
+        });
+    }
+});
