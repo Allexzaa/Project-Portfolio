@@ -1,22 +1,37 @@
-/* Reset and Base Styleds */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+document.addEventListener('DOMContentLoaded', function() {
+    const svg = document.getElementById('connections');
+    const resources = [
+        { id: 'ec2', x: 150, y: 150 },
+        { id: 's3', x: 350, y: 350 },
+        { id: 'lambda', x: 150, y: 550 },
+        { id: 'dynamodb', x: 550, y: 350 },
+    ];
 
-body {
-    background: #1a1a2e; /* Dark background from your theme */
-    min-height: 100vh;
-    overflow-x: hidden;
-}
+    resources.forEach(resource => {
+        const rect = document.getElementById(resource.id).getBoundingClientRect();
+        resource.x = rect.left + rect.width / 2;
+        resource.y = rect.top + rect.height / 2;
+    });
 
-#network-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1; /* Ensures it stays behind other content */
-    filter: brightness(1.2); /* Slight brightness to enhance glow */
-}
+    // Draw connections
+    const connections = [
+        { from: 'ec2', to: 's3' },
+        { from: 'ec2', to: 'lambda' },
+        { from: 'lambda', to: 'dynamodb' },
+        { from: 's3', to: 'dynamodb' },
+    ];
+
+    connections.forEach(connection => {
+        const from = resources.find(r => r.id === connection.from);
+        const to = resources.find(r => r.id === connection.to);
+
+        const line = document.createElementNS("http://www.w3.org/2000/svg", 'line');
+        line.setAttribute('x1', from.x);
+        line.setAttribute('y1', from.y);
+        line.setAttribute('x2', to.x);
+        line.setAttribute('y2', to.y);
+        line.setAttribute('stroke', 'white');
+        line.setAttribute('stroke-width', '2');
+        svg.appendChild(line);
+    });
+});
