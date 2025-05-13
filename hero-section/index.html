@@ -153,10 +153,10 @@
 </section>
     
 <!-- Project Portfolio --> 
-   <section class="process-section">
+ <section class="process-section">
   <div class="process-grid">
-    <div class="process-card">
-      <img src="images/001.png" alt="Icon 1" class="process-icon" />
+    <div class="process-card border-gradient">
+      <img src="images/icon1.png" alt="Icon 1" class="process-icon" />
       <h4 class="process-title">Data Collection & Preparation</h4>
       <p class="process-desc">Gather relevant data, clean, and preprocess it for analysis.</p>
       <a href="#pricing" class="process-link" aria-label="Learn more">
@@ -165,21 +165,21 @@
       <div class="process-number">1</div>
     </div>
 
-    <div class="process-card">
-      <img src="images/002.png" alt="Icon 2" class="process-icon" />
+    <div class="process-card border-gradient">
+      <img src="images/icon2.png" alt="Icon 2" class="process-icon" />
       <h4 class="process-title">Model Development & Training</h4>
       <p class="process-desc">Build and train AI models to recognize patterns.</p>
-      <a href="#pricing" class="process-link">
+      <a href="#pricing" class="process-link" aria-label="Learn more">
         <span class="arrow-icon">↗</span>
       </a>
       <div class="process-number">2</div>
     </div>
 
-    <div class="process-card">
-      <img src="images/003.png" alt="Icon 3" class="process-icon" />
+    <div class="process-card border-gradient">
+      <img src="images/icon3.png" alt="Icon 3" class="process-icon" />
       <h4 class="process-title">Evaluation & Deployment</h4>
       <p class="process-desc">Test model accuracy, refine as needed, and deploy.</p>
-      <a href="#pricing" class="process-link">
+      <a href="#pricing" class="process-link" aria-label="Learn more">
         <span class="arrow-icon">↗</span>
       </a>
       <div class="process-number">3</div>
@@ -190,6 +190,18 @@
   </main>
 
   <!-- JavaScript for collapsible resume items -->
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const cards = document.querySelectorAll(".border-gradient");
+    let angle = 0;
+    const rotateGradient = () => {
+      angle = (angle + 1) % 360;
+      cards.forEach(el => el.style.setProperty("--gradient-angle", `${angle}deg`));
+      requestAnimationFrame(rotateGradient);
+    };
+    rotateGradient();
+  });
+</script>
 <script>
   document.querySelectorAll(".job-toggle").forEach(button => {
     button.addEventListener("click", function (e) {
