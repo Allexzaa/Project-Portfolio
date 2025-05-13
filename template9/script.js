@@ -1,3 +1,4 @@
+try {
 document.addEventListener('DOMContentLoaded', () => {
     const canvas = document.getElementById('networkCanvas');
     const ctx = canvas.getContext('2d');
@@ -86,3 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
     resizeCanvas();
     animate();
 });
+} catch (error) {
+    console.error("Error:", error);
+    alert("Error occurred: " + error.message);
+}
