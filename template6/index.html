@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Animated Network Circuit</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: #0a0a0a;
+      overflow: hidden;
+    }
+
+    canvas {
+      display: block;
+      background-color: #0a0a0a;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="circuitCanvas"></canvas>
+  <script>
+    const canvas = document.getElementById('circuitCanvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const nodes = [];
+    const cols = 10;
+    const rows = 6;
+    const spacing = 100;
+    const radius = 4;
+
+    for (let i = 0; i < cols; i++) {
+      for (let j = 0; j < rows; j++) {
+        nodes.push({
+          x: spacing + i * spacing,
+          y: spacing + j * spacing,
+          pulse: 0
+        });
+      }
+    }
+
+    function drawConnections() {
+      ctx.strokeStyle = 'rgba(0,255,204,0.3)';
+      ctx.lineWidth = 1;
+      for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+          const ni = nodes[i];
+          const nj = nodes[j];
+          const dx = ni.x - nj.x;
+          const dy = ni.y - nj.y;
+          if ((Math.abs(dx) === spacing && dy === 0) || (Math.abs(dy) === spacing && dx === 0)) {
+            ctx.beginPath();
+            ctx.moveTo(ni.x, ni.y);
+            ctx.lineTo(nj.x, nj.y);
+            ctx.stroke();
+          }
+        }
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      drawConnections();
+
+      nodes.forEach((node, index) => {
+        node.pulse = (node.pulse + 1) % 100;
+        ctx.beginPath();
+        ctx.arc(node.x, node.y, radius + Math.sin(node.pulse * 0.1), 0, Math.PI * 2);
+        ctx.fillStyle = 'cyan';
+        ctx.fill();
+      });
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  </script>
+</body>
+</html>
