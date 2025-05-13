@@ -17,6 +17,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const pulseColors = ['#ff9900', '#e0e0e0']; // Orange and white for data pulses
     const awsIcons = ['ec2-icon', 's3-icon', 'lambda-icon', 'rds-icon']; // AWS icon IDs
 
+    // Preload AWS icons as images
+    const iconImages = {};
+    awsIcons.forEach(iconId => {
+        const symbol = document.querySelector(`#${iconId}`).cloneNode(true);
+        const size = 24; // Icon size in pixels
+        const svg = new XMLSerializer().serializeToString(symbol);
+        iconImages[iconId] = new Image();
+        iconImages[iconId].src = 'data:image/svg+xml;base64,' + btoa(svg);
+    });
+
     // Node class (connection points or AWS icons)
     class Node {
         constructor(x, y, isIcon = false) {
@@ -28,19 +38,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         draw() {
-            if (this.isIcon) {
+            if (this.isIcon && iconImages[this.iconId]) {
                 // Draw AWS icon
                 ctx.save();
-                ctx.translate(this.x - this.radius, this.y - this.radius); // Center the icon
                 const size = this.radius * 2;
-                // Create an SVG image for the icon
-                const svg = `<svg width="${size}" height="${size}" xmlns="http://www.w3.org/2000/svg"><use href="#${this.iconId}"/></svg>`;
-                const img = new Image();
-                img.src = 'data:image/svg+xml;base64,' + btoa(svg);
-                // Draw the icon with glow
                 ctx.shadowBlur = 15;
                 ctx.shadowColor = '#ff9900'; // Orange glow for icons
-                ctx.drawImage(img, 0, 0, size, size);
+                ctx.drawImage(iconImages[this.iconId], this.x - this.radius, this.y - this.radius, size, size);
                 ctx.shadowBlur = 0;
                 ctx.restore();
             } else {
