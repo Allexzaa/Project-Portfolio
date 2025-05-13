@@ -1,0 +1,63 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #1a1a2e; /* Dark background from your theme */
+    color: #e0e0e0;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Background Section */
+#background-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#network-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 2rem;
+}
+
+.content h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #FF9900; /* AWS Orange */
+    margin-bottom: 1rem;
+}
+
+.content p {
+    font-size: 1.5rem;
+    color: #e0e0e0;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .content h1 {
+        font-size: 2rem;
+    }
+
+    .content p {
+        font-size: 1.2rem;
+    }
+}
