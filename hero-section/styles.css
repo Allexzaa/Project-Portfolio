@@ -258,31 +258,65 @@ html, body {
 /* ===================== */
 
 .service-collection {
-  position: relative;
-  padding: 200px 0;
+  padding: 100px 30px;
   background-color: #f5f5f5;
+  position: relative;
   overflow: hidden;
 }
 
+.section-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.section-header h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.section-header p {
+  font-size: 18px;
+  color: #666;
+}
+
 .service-wrapper {
-  position: relative;
-  display: grid;
-  gap: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
 }
 
 .service-card {
   position: sticky;
-  top: 100px;
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 0.6s ease;
+  top: 120px;
   background: white;
   padding: 40px;
   border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 0.6s ease;
 }
+
+.service-card img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.service-card h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.service-card p {
+  font-size: 16px;
+  color: #444;
+}
+
 .service-card.active {
   opacity: 1;
   transform: translateY(0);
 }
-
