@@ -259,90 +259,114 @@ html, body {
 
 @import url("https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,500&display=swap");
 
-/* Border Gradient Base */
-.border-gradient {
-  --c: #171717;
-  --p: 10%;
-  background: linear-gradient(var(--c), var(--c)) padding-box,
-              conic-gradient(
-                from var(--gradient-angle, 0deg),
-                transparent,
-                white var(--p),
-                transparent calc(var(--p) * 2)
-              ) border-box;
-  border: 1px solid transparent;
-  border-radius: 16px;
+body {
+  background-color: #0a0a0a;
+  font-family: "Inter", sans-serif;
+  color: #fff;
 }
 
-/* Process Section Base Styles */
+/* --- Process Section Layout --- */
 .process-section {
-  background-color: #0a0a0a;
   padding: 100px 30px;
   text-align: center;
-  color: white;
-  font-family: "Inter", sans-serif;
 }
 
 .process-grid {
   display: flex;
-  flex-wrap: wrap;
   gap: 40px;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
+/* --- Bigger Card --- */
 .process-card {
   position: relative;
-  width: 300px;
-  padding: 40px 30px;
-  overflow: hidden;
+  width: 350px;
+  height: 480px;
+  padding: 50px 40px;
+  border-radius: 20px;
   text-align: left;
+  overflow: hidden;
   transition: transform 0.3s ease;
+  z-index: 0;
 }
 
 .process-card:hover {
   transform: translateY(-8px);
 }
 
-/* Icon and Text */
+/* --- Border Gradient (Dual) --- */
+.border-gradient.dual-glow {
+  --c: #0a0a0a;
+  --p: 10%;
+  background: linear-gradient(var(--c), var(--c)) padding-box,
+    conic-gradient(
+      from var(--angle1, 0deg),
+      transparent,
+      white var(--p),
+      transparent calc(var(--p) * 2)
+    ),
+    conic-gradient(
+      from var(--angle2, 180deg),
+      transparent,
+      #00ffff var(--p),
+      transparent calc(var(--p) * 2)
+    );
+  background-clip: padding-box, border-box, border-box;
+  background-origin: border-box;
+  border: 2px solid transparent;
+}
+
+/* --- Larger Icon --- */
 .process-icon {
-  width: 60px;
-  height: 60px;
+  width: 80px;
+  height: 80px;
   margin-bottom: 20px;
 }
 
 .process-title {
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 24px;
   margin-bottom: 10px;
 }
 
 .process-desc {
-  font-size: 14px;
+  font-size: 16px;
   color: #ccc;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
-/* Toggle Button */
+/* --- Process Number Overlay --- */
+.process-number {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  font-size: 80px;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.05);
+}
+
+/* --- Toggle Button Animation --- */
 .process-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
-  border: 1px solid #fff;
+  width: 48px;
+  height: 48px;
+  border: 2px solid #fff;
   border-radius: 50%;
   text-decoration: none;
   color: #fff;
   transition: background 0.3s ease, border 0.3s ease;
+  animation: flash 1.5s infinite;
 }
 
 .arrow-icon {
   display: inline-block;
-  transition: transform 0.3s ease;
+  transition: transform 0.6s ease;
 }
 
 .process-link:hover .arrow-icon {
-  transform: rotate(90deg);
+  transform: rotate(180deg);
 }
 
 .process-link:hover {
@@ -350,13 +374,10 @@ html, body {
   border-color: #007aff;
 }
 
-/* Number Overlay */
-.process-number {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  font-size: 72px;
-  font-weight: bold;
-  color: rgba(255, 255, 255, 0.05);
+/* Flashing effect */
+@keyframes flash {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
 }
+
 
