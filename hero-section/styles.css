@@ -253,4 +253,36 @@ html, body {
   padding: 0 10px;
 }
 
+/* ===================== */
+/*    Project Portfolio  */
+/* ===================== */
+
+.service-collection {
+  position: relative;
+  padding: 200px 0;
+  background-color: #f5f5f5;
+  overflow: hidden;
+}
+
+.service-wrapper {
+  position: relative;
+  display: grid;
+  gap: 100px;
+}
+
+.service-card {
+  position: sticky;
+  top: 100px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.6s ease;
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+.service-card.active {
+  opacity: 1;
+  transform: translateY(0);
+}
 
