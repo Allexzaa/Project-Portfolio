@@ -15,28 +15,29 @@ document.addEventListener('DOMContentLoaded', () => {
     const dataPulses = [];
     const glowColor = '#00aaff'; // Neon blue for glowing wires
     const pulseColors = ['#ff9900', '#e0e0e0']; // Orange and white for data pulses
-    const awsIcons = ['ec2-icon', 's3-icon', 'lambda-icon', 'rds-icon']; // AWS icon IDs
+    const awsIcons = ['ec2', 's3', 'lambda', 'rds']; // Base names of icon files (e.g., ec2.png)
 
-    // Preload AWS icons as images with a callback
+    // Preload AWS icons from images folder
     const iconImages = {};
     let iconsLoaded = 0;
     const totalIcons = awsIcons.length;
 
-    function loadIcon(iconId, callback) {
-        const symbol = document.querySelector(`#${iconId}`).cloneNode(true);
-        const size = 24; // Icon size in pixels
-        const svg = new XMLSerializer().serializeToString(symbol);
-        iconImages[iconId] = new Image();
-        iconImages[iconId].onload = () => {
+    function loadIcon(iconName, callback) {
+        iconImages[iconName] = new Image();
+        iconImages[iconName].onload = () => {
             iconsLoaded++;
             if (iconsLoaded === totalIcons) callback();
         };
-        iconImages[iconId].onerror = () => console.error(`Failed to load ${iconId}`);
-        iconImages[iconId].src = 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(svg)));
+        iconImages[iconName].onerror = () => console.error(`Failed to load image: images/${iconName}.png`);
+        // Add the path to your images folder here
+        iconImages[iconName].src = `images/001.png`; // <- This is where you set the path
+        iconImages[iconName].src = `images/002.png`;
+        iconImages[iconName].src = `images/003.png`;
     }
+    
 
     // Load all icons and start animation when ready
-    awsIcons.forEach(iconId => loadIcon(iconId, startAnimation));
+    awsIcons.forEach(iconName => loadIcon(iconName, startAnimation));
 
     function startAnimation() {
         console.log('All icons loaded, starting animation');
@@ -48,17 +49,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 this.y = y;
                 this.radius = isIcon ? 12 : 4; // Larger radius for icons
                 this.isIcon = isIcon;
-                this.iconId = isIcon ? awsIcons[Math.floor(Math.random() * awsIcons.length)] : null;
+                this.iconName = isIcon ? awsIcons[Math.floor(Math.random() * awsIcons.length)] : null;
             }
 
             draw() {
-                if (this.isIcon && iconImages[this.iconId]) {
+                if (this.isIcon && iconImages[this.iconName]) {
                     // Draw AWS icon
                     ctx.save();
                     const size = this.radius * 2;
                     ctx.shadowBlur = 15;
                     ctx.shadowColor = '#ff9900'; // Orange glow for icons
-                    ctx.drawImage(iconImages[this.iconId], this.x - this.radius, this.y - this.radius, size, size);
+                    ctx.drawImage(iconImages[this.iconName], this.x - this.radius, this.y - this.radius, size, size);
                     ctx.shadowBlur = 0;
                     ctx.restore();
                 } else {
@@ -178,18 +179,4 @@ document.addEventListener('DOMContentLoaded', () => {
         // Handle window resize
         window.addEventListener('resize', () => {
             canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-
-            // Recalculate wire and node positions
-            const newWireSpacing = canvas.width / (wireCount + 1);
-            const newNodeSpacing = canvas.height / (nodesPerWire + 1);
-            wires.forEach((wire, index) => {
-                wire.x = (index + 1) * newWireSpacing;
-                wire.nodes.forEach((node, nodeIndex) => {
-                    node.x = wire.x;
-                    node.y = (nodeIndex + 1) * newNodeSpacing;
-                });
-            });
-        });
-    }
-});
+            canvas.height = window.inner
