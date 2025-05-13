@@ -192,16 +192,25 @@
   <!-- JavaScript for collapsible resume items -->
   <script>
   document.addEventListener("DOMContentLoaded", () => {
-    const cards = document.querySelectorAll(".border-gradient");
-    let angle = 0;
-    const rotateGradient = () => {
-      angle = (angle + 1) % 360;
-      cards.forEach(el => el.style.setProperty("--gradient-angle", `${angle}deg`));
-      requestAnimationFrame(rotateGradient);
+    const cards = document.querySelectorAll(".dual-glow");
+
+    let angle1 = 0;
+    let angle2 = 180;
+
+    const rotateDualGradients = () => {
+      angle1 = (angle1 + 1) % 360;
+      angle2 = (angle2 + 1) % 360;
+      cards.forEach(card => {
+        card.style.setProperty("--angle1", `${angle1}deg`);
+        card.style.setProperty("--angle2", `${angle2}deg`);
+      });
+      requestAnimationFrame(rotateDualGradients);
     };
-    rotateGradient();
+
+    rotateDualGradients();
   });
 </script>
+
 <script>
   document.querySelectorAll(".job-toggle").forEach(button => {
     button.addEventListener("click", function (e) {
