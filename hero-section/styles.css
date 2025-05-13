@@ -292,30 +292,31 @@ body {
 }
 
 .process-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-4px);
 }
 
 /* --- Border Gradient (Dual) --- */
-.border-gradient.dual-glow {
-  --c: #0a0a0a;
-  --p: 10%;
-  background: linear-gradient(var(--c), var(--c)) padding-box,
-    conic-gradient(
-      from var(--angle1, 0deg),
-      transparent,
-      white var(--p),
-      transparent calc(var(--p) * 2)
-    ),
-    conic-gradient(
-      from var(--angle2, 180deg),
-      transparent,
-      #00ffff var(--p),
-      transparent calc(var(--p) * 2)
-    );
-  background-clip: padding-box, border-box, border-box;
-  background-origin: border-box;
-  border: 2px solid transparent;
-}
+.border-gradient {
+    --c: #0a0a0a;
+    --p: 10%;
+    background: linear-gradient(var(--c), var(--c)) padding-box,
+      conic-gradient(
+        from var(--gradient-angle, 0deg),
+        transparent,
+        white var(--p),
+        transparent calc(var(--p) * 2)
+      ),
+      conic-gradient(
+        from var(--gradient-angle, 0deg),
+        transparent,
+        #00ffff var(--p),
+        transparent calc(var(--p) * 2)
+      );
+    background-clip: padding-box, border-box, border-box;
+    background-origin: border-box;
+    border: 2px solid transparent;
+    border-radius: 20px;
+  }
 
 /* --- Larger Icon --- */
 .process-icon {
@@ -366,7 +367,7 @@ body {
 }
 
 .process-link:hover .arrow-icon {
-  transform: rotate(180deg);
+  transform: rotate(45deg);
 }
 
 .process-link:hover {
