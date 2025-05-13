@@ -31,14 +31,17 @@ document.addEventListener('DOMContentLoaded', () => {
             if (this.isIcon) {
                 // Draw AWS icon
                 ctx.save();
-                ctx.translate(this.x, this.y);
-                const icon = document.querySelector(`#${this.iconId}`).cloneNode(true);
+                ctx.translate(this.x - this.radius, this.y - this.radius); // Center the icon
                 const size = this.radius * 2;
-                icon.setAttribute('width', size);
-                icon.setAttribute('height', size);
+                // Create an SVG image for the icon
+                const svg = `<svg width="${size}" height="${size}" xmlns="http://www.w3.org/2000/svg"><use href="#${this.iconId}"/></svg>`;
+                const img = new Image();
+                img.src = 'data:image/svg+xml;base64,' + btoa(svg);
+                // Draw the icon with glow
                 ctx.shadowBlur = 15;
                 ctx.shadowColor = '#ff9900'; // Orange glow for icons
-                ctx.fill(icon);
+                ctx.drawImage(img, 0, 0, size, size);
+                ctx.shadowBlur = 0;
                 ctx.restore();
             } else {
                 // Draw standard node
