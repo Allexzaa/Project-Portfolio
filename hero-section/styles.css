@@ -257,66 +257,77 @@ html, body {
 /*    Project Portfolio  */
 /* ===================== */
 
-.service-collection {
+.process-section {
+  background-color: #0b0e1d;
   padding: 100px 30px;
-  background-color: #f5f5f5;
-  position: relative;
-  overflow: hidden;
-}
-
-.section-header {
   text-align: center;
-  margin-bottom: 80px;
 }
 
-.section-header h2 {
-  font-size: 36px;
-  margin-bottom: 10px;
-  color: #222;
-}
-
-.section-header p {
-  font-size: 18px;
-  color: #666;
-}
-
-.service-wrapper {
+.process-grid {
   display: flex;
-  flex-direction: column;
-  gap: 80px;
+  gap: 40px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-.service-card {
-  position: sticky;
-  top: 120px;
-  background: white;
-  padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-  opacity: 0;
-  transform: translateY(60px);
-  transition: all 0.6s ease;
+.process-card {
+  position: relative;
+  background-color: #181c2a;
+  border-radius: 16px;
+  padding: 40px 30px;
+  width: 300px;
+  text-align: left;
+  color: #fff;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  transition: transform 0.3s ease;
 }
 
-.service-card img {
-  width: 100%;
-  max-width: 500px;
-  height: auto;
+.process-card:hover {
+  transform: translateY(-10px);
+}
+
+.process-icon {
+  width: 60px;
+  height: 60px;
   margin-bottom: 20px;
-  border-radius: 10px;
 }
 
-.service-card h3 {
-  font-size: 24px;
+.process-title {
+  font-size: 20px;
+  font-weight: bold;
   margin-bottom: 10px;
 }
 
-.service-card p {
-  font-size: 16px;
-  color: #444;
+.process-desc {
+  font-size: 14px;
+  color: #ccc;
+  margin-bottom: 20px;
 }
 
-.service-card.active {
-  opacity: 1;
-  transform: translateY(0);
+.process-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  text-decoration: none;
+  color: #fff;
+  transition: background 0.3s ease;
+}
+
+.process-link:hover {
+  background-color: #007aff;
+  border-color: #007aff;
+}
+
+.process-number {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-size: 72px;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.05);
 }
