@@ -6,7 +6,7 @@
 }
 
 body {
-    background: #1a1a2e; /* Dark background from your theme */
+    background: #1a1a2e; /* Dark background from your AWS-inspired theme */
     min-height: 100vh;
     overflow-x: hidden;
 }
@@ -18,5 +18,28 @@ body {
     width: 100%;
     height: 100%;
     z-index: -1; /* Ensures it stays behind other content */
-    filter: brightness(1.2); /* Enhances the glow effect */
+    filter: brightness(1.2); /* Enhances the glow effect of wires and pulses */
+}
+
+/* Optional: Styling for overlay content (e.g., sidebar, navbar) */
+.content-overlay {
+    position: relative;
+    z-index: 1; /* Ensures content stays above the canvas */
+    color: #e0e0e0; /* Light text color for readability */
+    padding: 20px;
+}
+
+/* Optional: If you have a sidebar, adjust content positioning */
+@media (min-width: 769px) {
+    .content-overlay {
+        margin-left: 270px; /* Accounts for a 250px sidebar + padding */
+    }
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .content-overlay {
+        margin-left: 0; /* No sidebar offset on mobile */
+        padding: 10px;
+    }
 }
