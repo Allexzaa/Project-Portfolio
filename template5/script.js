@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const dataPulses = [];
     const glowColor = '#00aaff'; // Neon blue for glowing wires
     const pulseColors = ['#ff9900', '#e0e0e0']; // Orange and white for data pulses
-    const awsIcons = ['ec2', 's3', 'lambda', 'rds']; // Base names of icon files (e.g., ec2.png)
+    const awsIcons = ['001', '002', '003']; // Base names of icon files (e.g., ec2.png)
 
     // Preload AWS icons from images folder
     const iconImages = {};
