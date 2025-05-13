@@ -153,30 +153,39 @@
 </section>
     
 <!-- Project Portfolio --> 
-   <section class="service-collection">
-  <div class="section-header">
-    <h2>Create Your Own AI Business Easily</h2>
-    <p>Build scalable solutions with the power of AI-driven tools and services.</p>
-  </div>
-  <div class="service-wrapper">
-    <div class="service-card">
-      <img src="images/01.jpg" alt="AI Personalization">
-      <h3>AI Personalization</h3>
-      <p>Tailor user experiences with intelligent behavior tracking and recommendations.</p>
+   <section class="process-section">
+  <div class="process-grid">
+    <div class="process-card">
+      <img src="images/001.png" alt="Icon 1" class="process-icon" />
+      <h4 class="process-title">Data Collection & Preparation</h4>
+      <p class="process-desc">Gather relevant data, clean, and preprocess it for analysis.</p>
+      <a href="#pricing" class="process-link">
+        <span class="arrow-icon">↗</span>
+      </a>
+      <div class="process-number">1</div>
     </div>
-    <div class="service-card">
-      <img src="images/02.jpg" alt="Automation Tools">
-      <h3>Automation Tools</h3>
-      <p>Streamline operations and reduce costs using advanced automation scripts.</p>
+
+    <div class="process-card">
+      <img src="images/002.png" alt="Icon 2" class="process-icon" />
+      <h4 class="process-title">Model Development & Training</h4>
+      <p class="process-desc">Build and train AI models to recognize patterns.</p>
+      <a href="#pricing" class="process-link">
+        <span class="arrow-icon">↗</span>
+      </a>
+      <div class="process-number">2</div>
     </div>
-    <div class="service-card">
-      <img src="images/03.jpg" alt="AI Insights">
-      <h3>AI Insights</h3>
-      <p>Analyze complex data to uncover meaningful insights that drive growth.</p>
+
+    <div class="process-card">
+      <img src="images/003.png" alt="Icon 3" class="process-icon" />
+      <h4 class="process-title">Evaluation & Deployment</h4>
+      <p class="process-desc">Test model accuracy, refine as needed, and deploy.</p>
+      <a href="#pricing" class="process-link">
+        <span class="arrow-icon">↗</span>
+      </a>
+      <div class="process-number">3</div>
     </div>
   </div>
 </section>
-
 
   </main>
 
@@ -206,22 +215,32 @@
     });
   });
 </script>
-  <script>
-  const cards = document.querySelectorAll(".service-card");
-
+<script>
   const observer = new IntersectionObserver(entries => {
-    entries.forEach((entry, index) => {
+    entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.classList.add("active");
-        // Optional: stagger animation
-        entry.target.style.transitionDelay = `${index * 0.2}s`;
+        entry.target.classList.add('visible');
       }
     });
   }, { threshold: 0.3 });
 
-  cards.forEach(card => observer.observe(card));
+  document.querySelectorAll('.process-card').forEach(card => {
+    observer.observe(card);
+  });
 </script>
 
+<style>
+  .process-card {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .process-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
 
 </body>
 </html>
