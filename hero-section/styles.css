@@ -270,6 +270,7 @@ html, body {
   gap: 40px;
   justify-content: center;
   flex-wrap: wrap;
+  background-color: black;
 }
 
 /* --- Bigger Card --- */
@@ -298,7 +299,7 @@ html, body {
     conic-gradient(
       from var(--angle1, 0deg),
       transparent,
-      white var(--p),
+      #d942eb var(--p),
       transparent calc(var(--p) * 2)
     ),
     conic-gradient(
