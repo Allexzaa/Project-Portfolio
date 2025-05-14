@@ -1,0 +1,166 @@
+/* Reset and Base Styles */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    color: #333;
+    background-color: #fff;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+/* Root Variables (Theme Colors) */
+:root {
+    --title-font: "Zen Dots", sans-serif;
+    --text-font: Montserrat, sans-serif;
+    --text-color: #eee;
+    --theme-color: #cb39c1;
+    --theme-color-two: #b91f7a;
+    --theme-color-three: #3534ff;
+    --theme-color-four: #16151d;
+    --light: #eee;
+    --dark: #000;
+}
+
+/* Process Container Grid Layout */
+.process-container {
+    padding: 40px;
+}
+
+.process-grid {
+    grid-column-gap: 32px;
+    grid-row-gap: 32px;
+    grid-template-columns: 1fr 1fr 1fr;
+    display: grid;
+}
+
+.w-layout-grid {
+    grid-column-gap: 16px;
+    grid-row-gap: 16px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-columns: 1fr;
+    display: grid;
+}
+
+/* Process Block Styling */
+.process-block {
+    border-radius: 30px;
+    flex-flow: column;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.1); /* Slight background for depth */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    opacity: 0; /* Start hidden for animation */
+    transform: translateY(50px); /* Initial position for slide-up */
+}
+
+.process-block .block-stroke {
+    z-index: 1;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    inset: 0;
+    transform: scale(0.8); /* Start scaled down */
+    opacity: 0; /* Start hidden */
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.block-stroke {
+    width: 30%;
+    height: 90%;
+    background-image: linear-gradient(90deg, transparent, var(--theme-color) 20%, var(--theme-color-two) 50%, var(--theme-color-three) 78%, transparent);
+}
+
+/* Process Icon Styling */
+.process-icon {
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.process-icon img {
+    vertical-align: middle;
+    max-width: 100%;
+    width: 60px; /* Consistent size for icons */
+    height: 60px;
+    display: inline-block;
+}
+
+/* Process Content Styling */
+.process-title {
+    text-transform: capitalize;
+    padding-right: 20px;
+    line-height: 1.4em;
+}
+
+h4 {
+    font-family: var(--title-font);
+    color: var(--light);
+    margin-bottom: 16px;
+    font-size: 24px;
+    line-height: 1.4em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+/* Process Readmore Styling */
+.process-readmore {
+    color: var(--light);
+    background: var(--theme-color-four);
+    border: 1px solid #b1b1b1;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+    font-family: "Fa 400", Arial, sans-serif;
+    text-decoration: none;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.process-readmore-bg {
+    background-image: linear-gradient(120deg, var(--theme-color), var(--theme-color-two) 31%);
+    border-radius: 50%;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+a.process-readmore.w-inline-block {
+    cursor: pointer;
+}
+
+/* Process Count Styling */
+.process-count {
+    background-image: linear-gradient(120deg, var(--theme-color), var(--theme-color-two) 31%);
+    opacity: 0.2;
+    pointer-events: none;
+    font-family: var(--title-font);
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0;
+    font-size: 18px;
+    line-height: 1em;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
