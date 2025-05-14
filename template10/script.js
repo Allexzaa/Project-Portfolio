@@ -1,4 +1,4 @@
-// Ensure DOM is fully loaded before running scriptss
+// Ensure DOM is fully loaded before running scripts
 document.addEventListener('DOMContentLoaded', () => {
     // Select all process blocks for animation
     const processBlocks = document.querySelectorAll('.process-block');
