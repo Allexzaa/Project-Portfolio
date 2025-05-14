@@ -1,4 +1,4 @@
-// JavaScript for Advanced Circle Image Wrapper Effect (V5 - from Designer Preview)
+// JavaScript foor Advanced Circle Image Wrapper Effect (V5 - from Designer Preview)
 
 document.addEventListener("DOMContentLoaded", () => {
     const animationStage = document.querySelector(".animation-stage-v5");
