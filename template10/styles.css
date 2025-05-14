@@ -1,166 +1,89 @@
-/* Reset and Base Styless */
-* {
-    box-sizing: border-box;
-}
-
+/* CSS for Advanced Circle Image Wrapper Effect (V5 - from Designer Preview) */
 body {
-    color: #333;
-    background-color: #fff;
-    min-height: 100vh;
-    margin: 0;
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    line-height: 20px;
-}
-
-/* Root Variables (Theme Colors) */
-:root {
-    --title-font: "Zen Dots", sans-serif;
-    --text-font: Montserrat, sans-serif;
-    --text-color: #eee;
-    --theme-color: #cb39c1;
-    --theme-color-two: #b91f7a;
-    --theme-color-three: #3534ff;
-    --theme-color-four: #16151d;
-    --light: #eee;
-    --dark: #000;
-}
-
-/* Process Container Grid Layout */
-.process-container {
-    padding: 40px;
-}
-
-.process-grid {
-    grid-column-gap: 32px;
-    grid-row-gap: 32px;
-    grid-template-columns: 1fr 1fr 1fr;
-    display: grid;
-}
-
-.w-layout-grid {
-    grid-column-gap: 16px;
-    grid-row-gap: 16px;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-auto-columns: 1fr;
-    display: grid;
-}
-
-/* Process Block Styling */
-.process-block {
-    border-radius: 30px;
-    flex-flow: column;
-    padding: 20px;
-    position: relative;
-    overflow: hidden;
-    background: rgba(255, 255, 255, 0.1); /* Slight background for depth */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    opacity: 1 !important; /* Override JS animation start */
-    transform: none !important;
-}
-
-.process-block .block-stroke {
-    z-index: 1;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f7f7f7; /* Common light grey for web apps */
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    display: flex;
-    inset: 0;
-    transform: scale(0.8); /* Start scaled down */
-    opacity: 0; /* Start hidden */
-    transition: opacity 0.5s ease, transform 0.5s ease;
+    min-height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    color: #222;
 }
 
-.block-stroke {
-    width: 30%;
-    height: 90%;
-    background-image: linear-gradient(90deg, transparent, var(--theme-color) 20%, var(--theme-color-two) 50%, var(--theme-color-three) 78%, transparent);
-}
-
-/* Process Icon Styling */
-.process-icon {
-    margin-bottom: 24px;
+.controls-v5 {
+    margin-bottom: 30px;
     text-align: center;
 }
 
-.process-icon img {
-    vertical-align: middle;
-    max-width: 100%;
-    width: 60px; /* Consistent size for icons */
-    height: 60px;
-    display: inline-block;
+#playAnimationV5 {
+    padding: 14px 28px;
+    font-size: 17px;
+    font-weight: 500;
+    color: white;
+    background-color: #2c83fb; /* A vibrant blue */
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    transition: background-color 0.25s ease, transform 0.15s ease;
 }
 
-/* Process Content Styling */
-.process-title {
-    text-transform: capitalize;
-    padding-right: 20px;
-    line-height: 1.4em;
+#playAnimationV5:hover {
+    background-color: #1a73e8;
 }
 
-h4 {
-    font-family: var(--title-font);
-    color: var(--light);
-    margin-bottom: 16px;
-    font-size: 24px;
-    line-height: 1.4em;
+#playAnimationV5:active {
+    transform: scale(0.97);
 }
 
-h1, h2, h3, h4, h5, h6 {
-    margin-bottom: 10px;
-    font-weight: 700;
+#playAnimationV5:disabled {
+    background-color: #aabbc4;
+    box-shadow: none;
+    cursor: not-allowed;
 }
 
-/* Process Readmore Styling */
-.process-readmore {
-    color: var(--light);
-    background: var(--theme-color-four);
-    border: 1px solid #b1b1b1;
-    border-radius: 50%;
-    justify-content: center;
-    align-items: center;
-    width: 48px;
-    height: 48px;
-    font-family: "Fa 400", Arial, sans-serif;
-    text-decoration: none;
-    display: flex;
+.controls-v5 p {
+    font-size: 13px;
+    color: #555;
+    margin-top: 12px;
+}
+
+.animation-stage-v5 {
     position: relative;
-    overflow: hidden;
-    transition: transform 0.3s ease;
+    width: 700px; /* Larger stage for more complex movements */
+    height: 700px;
+    /* border: 1px solid #e0e0e0; */ /* Optional: for visual debugging */
 }
 
-.process-readmore-bg {
-    background-image: linear-gradient(120deg, var(--theme-color), var(--theme-color-two) 31%);
+/* Attempting to use class names that might be similar to Webflow structures */
+/* Actual class names from scalerfy_designer_preview_source.html should be prioritized if identifiable */
+.hero-visual_media-item-v5 {
+    position: absolute;
     border-radius: 50%;
-    pointer-events: none;
+    overflow: hidden;
+    /* Webflow often uses transforms for positioning and scaling, so initial CSS transforms might be minimal */
+    /* Box shadow from previous versions, can be adjusted */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1), 0 4px 8px rgba(0,0,0,0.07);
+    background-color: #fff; /* Fallback */
+    transform-origin: center center;
+    opacity: 0; /* Start hidden, JS will control entry */
+    will-change: transform, opacity, left, top, width, height, z-index;
+}
+
+.hero-visual_media-item-v5 img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 50%; 
+}
+
+/* Placeholder for any specific wrapper or component that might contain these items, based on designer preview analysis */
+.hero-visual_component-v5 {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 0; left: 0; right: 0; bottom: 0;
+    /* This would be the main container for the items if such a structure exists */
 }
 
-a.process-readmore.w-inline-block {
-    cursor: pointer;
-}
-
-/* Process Count Styling */
-.process-count {
-    background-image: linear-gradient(120deg, var(--theme-color), var(--theme-color-two) 31%);
-    opacity: 0.2;
-    pointer-events: none;
-    font-family: var(--title-font);
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 0;
-    font-size: 18px;
-    line-height: 1em;
-    position: absolute;
-    right: 10px;
-    top: 10px;
-}
-
-p {
-    margin-top: 0;
-    margin-bottom: 10px;
-    color: var(--text-color);
-}
