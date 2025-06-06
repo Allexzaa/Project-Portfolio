@@ -54,6 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         draw() {
+            this.hue = Math.random() * 360; // Assign random hue on each draw
             // Draw glow if active
             if (this.active) {
                 ctx.shadowBlur = 15;
@@ -157,6 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         draw() {
+            this.hue = Math.random() * 360; // Assign random hue on each draw
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
             ctx.fillStyle = `hsla(${this.hue}, 100%, 60%, 0.8)`;
